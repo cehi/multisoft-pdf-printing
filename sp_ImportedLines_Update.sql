@@ -1,12 +1,13 @@
 USE [MultiSoft]
 GO
 
-/****** Object:  StoredProcedure [dbo].[sp_ImportedLines_Update]    Script Date: 08/04/2016 1:08:46 AM ******/
+/****** Object:  StoredProcedure [dbo].[sp_ImportedLines_Update]    Script Date: 08/04/2016 5:54:42 PM ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
+
 
 
 -- =============================================
@@ -391,10 +392,10 @@ BEGIN
 		--EntityID For Subsequent pages
 
 		UPDATE IL
-		SET IL.IL_EntityID = B.PrevID + 1
+		SET IL.IL_EntityID = B.EntityID
 		FROM ImportedLines IL
 		INNER JOIN (
-			SELECT S.IL_IF_ID, S.IL_PageID, MAX(F.IL_EntityID) AS PrevID				
+			SELECT S.IL_IF_ID, S.IL_PageID, MIN(F.IL_EntityID) AS EntityID				
 			FROM ImportedLines S
 			INNER JOIN (
 				SELECT DISTINCT IL_IF_ID
@@ -408,7 +409,7 @@ BEGIN
 			WHERE  SUBSTRING(S.IL_Contents,52,9) = 'Continued'
 				AND S.IL_PageLineID = 61
 				AND S.IL_EntityID IS NULL
-				AND S.IL_PageID > F.IL_PageID
+				AND S.IL_PageID < F.IL_PageID
 				GROUP BY S.IL_IF_ID, S.IL_PageID
 			) AS B ON IL.IL_IF_ID = B.IL_IF_ID
 			AND IL.IL_PageID = B.IL_PageID
@@ -505,6 +506,7 @@ BEGIN
 	UPDATE ProcessLog SET PL_EndTime = GetDate() WHERE PL_ID = @PL_ID
 
 END
+
 
 
 

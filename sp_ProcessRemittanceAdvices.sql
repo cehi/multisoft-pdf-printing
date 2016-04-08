@@ -1,7 +1,17 @@
+USE [MultiSoft]
+GO
+
+/****** Object:  StoredProcedure [dbo].[sp_ProcessRemittanceAdvices]    Script Date: 08/04/2016 10:32:03 AM ******/
+DROP PROCEDURE [dbo].[sp_ProcessRemittanceAdvices]
+GO
+
+/****** Object:  StoredProcedure [dbo].[sp_ProcessRemittanceAdvices]    Script Date: 08/04/2016 10:32:03 AM ******/
 SET ANSI_NULLS ON
 GO
+
 SET QUOTED_IDENTIFIER ON
 GO
+
 -- =============================================
 -- Author:		Chi Vu
 -- Create date: 06/04/2016
@@ -124,7 +134,7 @@ BEGIN
 	FROM RemittanceAdviceHeader RAH
 	INNER JOIN (SELECT IL_IF_ID, IL_EntityID, IL_EntityValue
 					,LTRIM(RTRIM(SUBSTRING(IL_Contents,50,8))) AS SuppNo
-					--,CONVERT(date,SUBSTRING(IL_Contents,85,8), 4) AS InvDate
+					
 				FROM Importedlines
 				WHERE 1 = 1
 				  AND IL_PageLineID = 14
@@ -235,8 +245,8 @@ BEGIN
 			,IL.IL_EntityID
 			,IL.IL_EntityValue
 			,CONVERT(date,SUBSTRING(IL_Contents,2,8), 4) AS RAL_Date
-			,LTRIM(RTRIM(SUBSTRING(IL.IL_Contents,12,12))) AS RAL_TransactionTypeRef
-			,LTRIM(RTRIM(SUBSTRING(IL.IL_Contents,24,14))) AS RAL_OurRef
+			,LTRIM(RTRIM(SUBSTRING(IL.IL_Contents,10,16))) AS RAL_TransactionTypeRef
+			,LTRIM(RTRIM(SUBSTRING(IL.IL_Contents,26,12))) AS RAL_OurRef
 			,0 AS RAL_IsInfo
 			,dbo.fn_HandleNegatives(SUBSTRING(IL.IL_Contents,38,12)) AS RAL_TransactionValue			
 			,dbo.fn_HandleNegatives(SUBSTRING(IL.IL_Contents,50,12)) AS RAL_PaymentAmount
@@ -254,7 +264,7 @@ BEGIN
 					WHERE IL_PageLineID >= 22
 						AND IL_PageLineID <= 60
 						AND IL_IF_ID = @IL_IF_ID 
-						AND IL_EntityType = 'RemittanceAdvice'
+						AND IL_EntityType = 'Remittance Advice'
 						)
 		ORDER BY IL.IL_ID
 		
@@ -298,4 +308,7 @@ BEGIN
 
 	UPDATE ProcessLog SET PL_EndTime = GetDate() WHERE PL_ID = @PL_ID
 END
+
 GO
+
+
