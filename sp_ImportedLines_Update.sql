@@ -1,7 +1,7 @@
 USE [MultiSoft]
 GO
 
-/****** Object:  StoredProcedure [dbo].[sp_ImportedLines_Update]    Script Date: 08/04/2016 5:54:42 PM ******/
+/****** Object:  StoredProcedure [dbo].[sp_ImportedLines_Update]    Script Date: 09/04/2016 8:50:06 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -32,6 +32,10 @@ BEGIN
 	DECLARE @PL_ID2 AS int
 	DECLARE @PL_ID3 AS int
 	DECLARE @PL_ID4 AS int
+	DECLARE @PL_ID4a AS int
+	DECLARE @PL_ID4b AS int
+	DECLARE @PL_ID4c AS int
+	DECLARE @PL_ID4d AS int
 	DECLARE @PL_ID5 AS int
 	DECLARE @PL_ID6 AS int
 	DECLARE @PL_ID7 AS int
@@ -311,6 +315,7 @@ BEGIN
 	--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	-- Updates Entity Details for Remittance Advices - 05/04/2016
 	-- Process log 4, as PL_ID3 used for UnHanded Items 
+	-- Modified date: 09/04.2016 -- Create log in ProcessLog
 
 	INSERT INTO ProcessLog (PL_Action, PL_SubAction, PL_StartTime, PL_IF_ID, PL_EntityValue) VALUES ('sp_ImportedLines_Update','RemittanceAdvices', getdate(), @IL_IF_ID, NULL)
 	SELECT @PL_ID4 = SCOPE_IDENTITY()
@@ -325,11 +330,14 @@ BEGIN
 
 	SELECT @NoOfRemittanceAdvices = @@ROWCOUNT
 
+	UPDATE ProcessLog SET PL_EndTime = GetDate() WHERE PL_ID = @PL_ID4
+
 	IF @NoOfRemittanceAdvices > 0
 	BEGIN
 		
 		-- Update Entity Type
-
+		INSERT INTO ProcessLog (PL_Action, PL_SubAction, PL_StartTime, PL_IF_ID, PL_EntityValue) VALUES ('sp_ImportedLines_Update','RemittanceAdvicesA.EntityType', getdate(), @IL_IF_ID, NULL)
+		SELECT @PL_ID4a = SCOPE_IDENTITY()
 		
 		UPDATE IL
 		SET 
@@ -342,7 +350,12 @@ BEGIN
 		WHERE B.IL_EntityType = 'Remittance Advice'
 		  AND IL.IL_IF_ID = @IL_IF_ID
 
+		UPDATE ProcessLog SET PL_EndTime = GetDate() WHERE PL_ID = @PL_ID4a
+
 		-- Update Entity Value = SuppNo + PrintDate
+
+		INSERT INTO ProcessLog (PL_Action, PL_SubAction, PL_StartTime, PL_IF_ID, PL_EntityValue) VALUES ('sp_ImportedLines_Update','RemittanceAdvicesB.EntityValue', getdate(), @IL_IF_ID, NULL)
+		SELECT @PL_ID4b = SCOPE_IDENTITY()
 
 		UPDATE IL
 		SET 
@@ -365,10 +378,14 @@ BEGIN
 		WHERE IL.IL_EntityType = 'Remittance Advice'
 		  AND IL.IL_IF_ID = @IL_IF_ID		  	
 
+		UPDATE ProcessLog SET PL_EndTime = GetDate() WHERE PL_ID = @PL_ID4b
 
 		-- Update EntityID
 		
 		--EntityID For first page
+
+		INSERT INTO ProcessLog (PL_Action, PL_SubAction, PL_StartTime, PL_IF_ID, PL_EntityValue) VALUES ('sp_ImportedLines_Update','RemittanceAdvicesC.EntityIDFirstPage', getdate(), @IL_IF_ID, NULL)
+		SELECT @PL_ID4c = SCOPE_IDENTITY()
 
 		UPDATE IL
 		SET IL.IL_EntityID = B.IL_EntityID
@@ -389,7 +406,12 @@ BEGIN
 			AND IL.IL_PageID = B.IL_PageID
 			AND IL.IL_IF_ID = @IL_IF_ID
 
+		UPDATE ProcessLog SET PL_EndTime = GetDate() WHERE PL_ID = @PL_ID4c
+
 		--EntityID For Subsequent pages
+
+		INSERT INTO ProcessLog (PL_Action, PL_SubAction, PL_StartTime, PL_IF_ID, PL_EntityValue) VALUES ('sp_ImportedLines_Update','RemittanceAdvicesD.EntityIDSubsequentPage', getdate(), @IL_IF_ID, NULL)
+		SELECT @PL_ID4d = SCOPE_IDENTITY()
 
 		UPDATE IL
 		SET IL.IL_EntityID = B.EntityID
@@ -415,10 +437,10 @@ BEGIN
 			AND IL.IL_PageID = B.IL_PageID
 			AND IL.IL_IF_ID = @IL_IF_ID		
 
-
+		UPDATE ProcessLog SET PL_EndTime = GetDate() WHERE PL_ID = @PL_ID4d
 	END
 
-	UPDATE ProcessLog SET PL_EndTime = GetDate() WHERE PL_ID = @PL_ID4
+	
 
 	--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	--Updates Entity Details for Un Handled Items

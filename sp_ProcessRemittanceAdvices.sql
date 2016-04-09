@@ -1,16 +1,17 @@
 USE [MultiSoft]
 GO
 
-/****** Object:  StoredProcedure [dbo].[sp_ProcessRemittanceAdvices]    Script Date: 08/04/2016 10:32:03 AM ******/
+/****** Object:  StoredProcedure [dbo].[sp_ProcessRemittanceAdvices]    Script Date: 09/04/2016 8:49:45 PM ******/
 DROP PROCEDURE [dbo].[sp_ProcessRemittanceAdvices]
 GO
 
-/****** Object:  StoredProcedure [dbo].[sp_ProcessRemittanceAdvices]    Script Date: 08/04/2016 10:32:03 AM ******/
+/****** Object:  StoredProcedure [dbo].[sp_ProcessRemittanceAdvices]    Script Date: 09/04/2016 8:49:45 PM ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
+
 
 -- =============================================
 -- Author:		Chi Vu
@@ -23,6 +24,14 @@ CREATE PROCEDURE [dbo].[sp_ProcessRemittanceAdvices]
 AS
 BEGIN
 	DECLARE @PL_ID AS int
+	DECLARE @PL_ID1 AS int
+	DECLARE @PL_ID2 AS int
+	DECLARE @PL_ID2a AS int
+	DECLARE @PL_ID2b AS int
+	DECLARE @PL_ID2c AS int
+	DECLARE @PL_ID2d AS int
+	DECLARE @PL_ID3 AS int
+
 	INSERT INTO ProcessLog (PL_Action, PL_SubAction, PL_StartTime, PL_IF_ID, PL_EntityValue) VALUES ('sp_ProcessRemittanceAdvices',NULL, getdate(), @IL_IF_ID, NULL)
 	SELECT @PL_ID = SCOPE_IDENTITY()
 
@@ -38,6 +47,9 @@ BEGIN
 		DROP TABLE dbo.tmpRemittanceAdviceLines
 	IF OBJECT_ID('dbo.tmpRAHNewDuplicates', 'U') IS NOT NULL
 		DROP TABLE dbo.tmpRAHNewDuplicates
+
+	INSERT INTO ProcessLog (PL_Action, PL_SubAction, PL_StartTime, PL_IF_ID, PL_EntityValue) VALUES ('sp_ProcessRemittanceAdvices','PRA.Move Duplicates To History', getdate(), @IL_IF_ID, NULL)
+	SELECT @PL_ID1 = SCOPE_IDENTITY()
 	
 	SELECT DISTINCT RAH_ID
 	INTO tmpRAHNewDuplicates
@@ -111,7 +123,11 @@ BEGIN
 	DELETE FROM RemittanceAdviceHeader
 	WHERE RAH_ID IN (SELECT RAH_ID FROM tmpRAHNewDuplicates)
 
-	--TRUNCATE TABLE RemittanceAdviceHeader
+	UPDATE ProcessLog SET PL_EndTime = GetDate() WHERE PL_ID = @PL_ID1
+
+	INSERT INTO ProcessLog (PL_Action, PL_SubAction, PL_StartTime, PL_IF_ID, PL_EntityValue) VALUES ('sp_ProcessRemittanceAdvices','PRA.Update Header', getdate(), @IL_IF_ID, NULL)
+	SELECT @PL_ID2 = SCOPE_IDENTITY()
+
 	--Insert RemittanceAdvice Stub
 	INSERT INTO RemittanceAdviceHeader (
 		 RAH_EntityValue
@@ -127,6 +143,12 @@ BEGIN
 	WHERE IL_IF_ID = @IL_IF_ID
 		AND IL_EntityType = 'Remittance Advice'
 	ORDER BY IL_EntityValue
+
+	UPDATE ProcessLog SET PL_EndTime = GetDate() WHERE PL_ID = @PL_ID2
+
+
+	INSERT INTO ProcessLog (PL_Action, PL_SubAction, PL_StartTime, PL_IF_ID, PL_EntityValue) VALUES ('sp_ProcessRemittanceAdvices','PRA.Update Header.SuppNo-PrintDate', getdate(), @IL_IF_ID, NULL)
+	SELECT @PL_ID2a = SCOPE_IDENTITY()
 
 	--Update SuppNo and PrintDate
 	UPDATE RAH
@@ -158,6 +180,10 @@ BEGIN
 	  ON RAH.RAH_IF_ID = U.IL_IF_ID
 	 AND RAH.RAH_EntityID = U.IL_EntityID
 	 	 
+	UPDATE ProcessLog SET PL_EndTime = GetDate() WHERE PL_ID = @PL_ID2a
+
+	INSERT INTO ProcessLog (PL_Action, PL_SubAction, PL_StartTime, PL_IF_ID, PL_EntityValue) VALUES ('sp_ProcessRemittanceAdvices','PRA.Update Header.Currency', getdate(), @IL_IF_ID, NULL)
+	SELECT @PL_ID2b = SCOPE_IDENTITY()
 
 	--Update Currency
 	UPDATE RemittanceAdviceHeader
@@ -167,6 +193,10 @@ BEGIN
 					END
 	WHERE RAH_IF_ID = @IL_IF_ID 
 
+	UPDATE ProcessLog SET PL_EndTime = GetDate() WHERE PL_ID = @PL_ID2b
+
+	INSERT INTO ProcessLog (PL_Action, PL_SubAction, PL_StartTime, PL_IF_ID, PL_EntityValue) VALUES ('sp_ProcessRemittanceAdvices','PRA.Update Header.Total Amount', getdate(), @IL_IF_ID, NULL)
+	SELECT @PL_ID2c = SCOPE_IDENTITY()
 
 	--Update TotalAmountPaid
 	UPDATE RAH
@@ -187,6 +217,11 @@ BEGIN
 				) AS U 
 		 ON RAH.RAH_IF_ID = U.IL_IF_ID
 		AND RAH.RAH_EntityID = U.IL_EntityID
+
+	UPDATE ProcessLog SET PL_EndTime = GetDate() WHERE PL_ID = @PL_ID2c
+
+	INSERT INTO ProcessLog (PL_Action, PL_SubAction, PL_StartTime, PL_IF_ID, PL_EntityValue) VALUES ('sp_ProcessRemittanceAdvices','PRA.Update Header.SuppNameAddress', getdate(), @IL_IF_ID, NULL)
+	SELECT @PL_ID2d = SCOPE_IDENTITY()
 
 --	--Get SuppNameAddress = DeliverTo addresses
 	SELECT Min(IL_ID)  AS MyDeliver
@@ -210,8 +245,7 @@ BEGIN
 		,SUBSTRING(IL_Contents, 12, 38)
 	ORDER BY Min(IL_ID)
 	
-
-
+	
 	UPDATE RAH
 	SET RAH_SuppNameAddress = CASE 
 						WHEN ASCII(RIGHT(U.DeliverTo, 1)) = 10 THEN LEFT(U.DeliverTo, Len(U.DeliverTo) - 1)
@@ -238,7 +272,12 @@ BEGIN
 		) AS U ON RAH.RAH_IF_ID = U.IL_IF_ID
 		AND RAH.RAH_EntityID = U.IL_EntityID
 
+	UPDATE ProcessLog SET PL_EndTime = GetDate() WHERE PL_ID = @PL_ID2d
+
 	
+	INSERT INTO ProcessLog (PL_Action, PL_SubAction, PL_StartTime, PL_IF_ID, PL_EntityValue) VALUES ('sp_ProcessRemittanceAdvices','PRA.Update Lines', getdate(), @IL_IF_ID, NULL)
+	SELECT @PL_ID3 = SCOPE_IDENTITY()
+
 	--Insert New Data into RAL table
 	SELECT IL.IL_ID  
 			,IL.IL_IF_ID
@@ -292,9 +331,9 @@ BEGIN
 		AND RAH_EntityID = IL_EntityID
 	ORDER BY RAH_ID, IL_ID
 
-	--DROP TABLE tmpRemittanceAdviceLines
-	
-	
+	UPDATE ProcessLog SET PL_EndTime = GetDate() WHERE PL_ID = @PL_ID3
+
+		
 	--Update Report Generated Log
 	UPDATE ReportGeneratedLog
 	SET RG_DataExtracted = GETDATE()
@@ -309,6 +348,6 @@ BEGIN
 	UPDATE ProcessLog SET PL_EndTime = GetDate() WHERE PL_ID = @PL_ID
 END
 
-GO
 
+GO
 
