@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition">
+  <DataSet Name="">
+    <Query>
+      <DataSourceReference>SCCS-MDS_MultiSoft</DataSourceReference>
+      <DataSetParameters>
+        <DataSetParameter Name="@INH_InvoiceNumber">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>Object</rd:DbType>
+        </DataSetParameter>
+      </DataSetParameters>
+      <CommandText>SELECT INH_ID, INH_InvoiceNumber, INH_IF_ID, INH_EntityID, INH_IsTaxInvoice, INH_IsGST, INH_IsCopy, INH_AccountNo, INH_CU_ID, INH_Date, INH_YourOrderNo, INH_Rep, INH_OurSONo, INH_InvoiceTo, INH_DeliverTo, INH_InvoiceTotalEx, INH_InvoiceTotalGST, INH_InvoiceTotalInc
+,INL_Product
+,INL_Description
+,INL_IsSerialNumber
+,INL_IsInfo
+,INL_PriceEx
+,INL_Quantity
+,INL_TotalEx
+,INL_GST
+,INL_TotalInc
+FROM            vw_Invoice
+WHERE        (INH_InvoiceNumber = 'J ' + ISNULL(@INH_InvoiceNumber, '')) OR
+                         (INH_InvoiceNumber = 'C  ' + ISNULL(@INH_InvoiceNumber, ''))</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="INH_ID">
+        <DataField>INH_ID</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="INH_InvoiceNumber">
+        <DataField>INH_InvoiceNumber</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="INH_IF_ID">
+        <DataField>INH_IF_ID</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="INH_EntityID">
+        <DataField>INH_EntityID</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="INH_IsTaxInvoice">
+        <DataField>INH_IsTaxInvoice</DataField>
+        <rd:TypeName>System.Boolean</rd:TypeName>
+      </Field>
+      <Field Name="INH_IsGST">
+        <DataField>INH_IsGST</DataField>
+        <rd:TypeName>System.Boolean</rd:TypeName>
+      </Field>
+      <Field Name="INH_IsCopy">
+        <DataField>INH_IsCopy</DataField>
+        <rd:TypeName>System.Boolean</rd:TypeName>
+      </Field>
+      <Field Name="INH_AccountNo">
+        <DataField>INH_AccountNo</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="INH_CU_ID">
+        <DataField>INH_CU_ID</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="INH_Date">
+        <DataField>INH_Date</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="INH_YourOrderNo">
+        <DataField>INH_YourOrderNo</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="INH_Rep">
+        <DataField>INH_Rep</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="INH_OurSONo">
+        <DataField>INH_OurSONo</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="INH_InvoiceTo">
+        <DataField>INH_InvoiceTo</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="INH_DeliverTo">
+        <DataField>INH_DeliverTo</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="INH_InvoiceTotalEx">
+        <DataField>INH_InvoiceTotalEx</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="INH_InvoiceTotalGST">
+        <DataField>INH_InvoiceTotalGST</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="INH_InvoiceTotalInc">
+        <DataField>INH_InvoiceTotalInc</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="INL_Product">
+        <DataField>INL_Product</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="INL_Description">
+        <DataField>INL_Description</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="INL_IsSerialNumber">
+        <DataField>INL_IsSerialNumber</DataField>
+        <rd:TypeName>System.Boolean</rd:TypeName>
+      </Field>
+      <Field Name="INL_IsInfo">
+        <DataField>INL_IsInfo</DataField>
+        <rd:TypeName>System.Boolean</rd:TypeName>
+      </Field>
+      <Field Name="INL_PriceEx">
+        <DataField>INL_PriceEx</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="INL_Quantity">
+        <DataField>INL_Quantity</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="INL_TotalEx">
+        <DataField>INL_TotalEx</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="INL_GST">
+        <DataField>INL_GST</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="INL_TotalInc">
+        <DataField>INL_TotalInc</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

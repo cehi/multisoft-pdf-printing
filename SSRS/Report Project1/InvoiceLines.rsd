@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition">
+  <DataSet Name="">
+    <Query>
+      <DataSourceReference>SCCS-MDS_MultiSoft</DataSourceReference>
+      <DataSetParameters>
+        <DataSetParameter Name="@INL_INH_ID">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>Object</rd:DbType>
+        </DataSetParameter>
+      </DataSetParameters>
+      <CommandText>SELECT        INL_ID, INL_INH_ID, INL_IF_ID, INL_EntityID, INL_Product, INL_Description, INL_IsSerialNumber, INL_IsInfo, INL_PriceEx, INL_Quantity, INL_TotalEx, INL_GST, INL_TotalInc
+FROM            vw_InvoiceLine
+WHERE        (INL_INH_ID = @INL_INH_ID)
+ORDER BY INL_ID</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="INL_ID">
+        <DataField>INL_ID</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="INL_INH_ID">
+        <DataField>INL_INH_ID</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="INL_IF_ID">
+        <DataField>INL_IF_ID</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="INL_EntityID">
+        <DataField>INL_EntityID</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="INL_Product">
+        <DataField>INL_Product</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="INL_Description">
+        <DataField>INL_Description</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="INL_IsSerialNumber">
+        <DataField>INL_IsSerialNumber</DataField>
+        <rd:TypeName>System.Boolean</rd:TypeName>
+      </Field>
+      <Field Name="INL_IsInfo">
+        <DataField>INL_IsInfo</DataField>
+        <rd:TypeName>System.Boolean</rd:TypeName>
+      </Field>
+      <Field Name="INL_PriceEx">
+        <DataField>INL_PriceEx</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="INL_Quantity">
+        <DataField>INL_Quantity</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="INL_TotalEx">
+        <DataField>INL_TotalEx</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="INL_GST">
+        <DataField>INL_GST</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="INL_TotalInc">
+        <DataField>INL_TotalInc</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

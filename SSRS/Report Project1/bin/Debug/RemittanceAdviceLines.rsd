@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition">
+  <DataSet Name="">
+    <Query>
+      <DataSourceReference>SCCS-MDS_MultiSoft</DataSourceReference>
+      <DataSetParameters>
+        <DataSetParameter Name="@RAL_RAH_ID">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>Object</rd:DbType>
+        </DataSetParameter>
+      </DataSetParameters>
+      <CommandText>SELECT        RAL_ID, RAL_RAH_ID, RAL_IF_ID, RAL_EntityID, RAL_Date, RAL_TransactionTypeRef, RAL_OurRef, RAL_IsInfo, RAL_TransactionValue, RAL_PaymentAmount
+FROM            vw_RemittanceAdviceLine
+WHERE	RAL_RAH_ID=@RAL_RAH_ID</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="RAL_ID">
+        <DataField>RAL_ID</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="RAL_RAH_ID">
+        <DataField>RAL_RAH_ID</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="RAL_IF_ID">
+        <DataField>RAL_IF_ID</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="RAL_EntityID">
+        <DataField>RAL_EntityID</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="RAL_Date">
+        <DataField>RAL_Date</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="RAL_TransactionTypeRef">
+        <DataField>RAL_TransactionTypeRef</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="RAL_OurRef">
+        <DataField>RAL_OurRef</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="RAL_IsInfo">
+        <DataField>RAL_IsInfo</DataField>
+        <rd:TypeName>System.Boolean</rd:TypeName>
+      </Field>
+      <Field Name="RAL_TransactionValue">
+        <DataField>RAL_TransactionValue</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="RAL_PaymentAmount">
+        <DataField>RAL_PaymentAmount</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition">
+  <DataSet Name="">
+    <Query>
+      <DataSourceReference>SCCS-MDS_MultiSoft</DataSourceReference>
+      <DataSetParameters>
+        <DataSetParameter Name="@RAH_SuppNo">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:UserDefined>true</rd:UserDefined>
+        </DataSetParameter>
+        <DataSetParameter Name="@RAH_PrintDate">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:UserDefined>true</rd:UserDefined>
+        </DataSetParameter>
+      </DataSetParameters>
+      <CommandText>SELECT        RAH_ID, RAH_EntityValue, RAH_IF_ID, RAH_EntityID, RAH_CU_ID, RAH_SuppNo, RAH_SuppNameAddress, RAH_TotalAmountPaid, RAH_PrintDate
+FROM            vw_RemittanceAdviceHeader
+WHERE    RAH_SuppNo = @RAH_SuppNo and RAH_PrintDate=@RAH_PrintDate</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="RAH_ID">
+        <DataField>RAH_ID</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="RAH_EntityValue">
+        <DataField>RAH_EntityValue</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="RAH_IF_ID">
+        <DataField>RAH_IF_ID</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="RAH_EntityID">
+        <DataField>RAH_EntityID</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="RAH_CU_ID">
+        <DataField>RAH_CU_ID</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="RAH_SuppNo">
+        <DataField>RAH_SuppNo</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="RAH_SuppNameAddress">
+        <DataField>RAH_SuppNameAddress</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="RAH_TotalAmountPaid">
+        <DataField>RAH_TotalAmountPaid</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="RAH_PrintDate">
+        <DataField>RAH_PrintDate</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>
