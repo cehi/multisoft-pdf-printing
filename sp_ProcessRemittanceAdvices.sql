@@ -1,11 +1,11 @@
 USE [MultiSoft]
 GO
 
-/****** Object:  StoredProcedure [dbo].[sp_ProcessRemittanceAdvices]    Script Date: 09/04/2016 8:49:45 PM ******/
+/****** Object:  StoredProcedure [dbo].[sp_ProcessRemittanceAdvices]    Script Date: 16/04/2016 7:59:08 PM ******/
 DROP PROCEDURE [dbo].[sp_ProcessRemittanceAdvices]
 GO
 
-/****** Object:  StoredProcedure [dbo].[sp_ProcessRemittanceAdvices]    Script Date: 09/04/2016 8:49:45 PM ******/
+/****** Object:  StoredProcedure [dbo].[sp_ProcessRemittanceAdvices]    Script Date: 16/04/2016 7:59:08 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -291,14 +291,12 @@ BEGIN
 			,dbo.fn_HandleNegatives(SUBSTRING(IL.IL_Contents,50,12)) AS RAL_PaymentAmount
 			--,IL_Contents
 			INTO tmpRemittanceAdviceLines
-		FROM Importedlines IL
-		LEFT OUTER JOIN tmpSerialNumbers SN
-		  ON IL.IL_ID = SN.IL_ID
+		FROM Importedlines IL		
 		WHERE 1 = 1
 		  AND LTRIM(RTRIM(IL.IL_Contents)) <> ''
 		  --AND SUBSTRING(IL.IL_Contents,52,9) <> 'Continued'
 		  AND LEFT(IL.IL_Contents, 85) <> SPACE(85)
-		  AND IL.IL_ID IN (SELECT IL_ID AS DeliverTo
+		  AND IL.IL_ID IN (SELECT IL_ID
 					FROM Importedlines
 					WHERE IL_PageLineID >= 22
 						AND IL_PageLineID <= 60
