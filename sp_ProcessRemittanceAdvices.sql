@@ -1,16 +1,17 @@
 USE [MultiSoft]
 GO
 
-/****** Object:  StoredProcedure [dbo].[sp_ProcessRemittanceAdvices]    Script Date: 16/04/2016 7:59:08 PM ******/
+/****** Object:  StoredProcedure [dbo].[sp_ProcessRemittanceAdvices]    Script Date: 18/04/2016 4:17:37 PM ******/
 DROP PROCEDURE [dbo].[sp_ProcessRemittanceAdvices]
 GO
 
-/****** Object:  StoredProcedure [dbo].[sp_ProcessRemittanceAdvices]    Script Date: 16/04/2016 7:59:08 PM ******/
+/****** Object:  StoredProcedure [dbo].[sp_ProcessRemittanceAdvices]    Script Date: 18/04/2016 4:17:37 PM ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
+
 
 
 -- =============================================
@@ -93,6 +94,7 @@ BEGIN
 		,RAHH_IF_ID
 		,RAHH_EntityID
 		,RAHH_IsSecure
+		,RAHH_CU_ID
 		,RAHH_SuppNo
 		,RAHH_SuppNameAddress
 		,RAHH_TotalAmountPaid
@@ -103,6 +105,7 @@ BEGIN
 		,RAH_IF_ID
 		,RAH_EntityID
 		,RAH_IsSecure
+		,RAH_CU_ID
 		,RAH_SuppNo
 		,RAH_SuppNameAddress
 		,RAH_TotalAmountPaid
@@ -278,18 +281,18 @@ BEGIN
 	INSERT INTO ProcessLog (PL_Action, PL_SubAction, PL_StartTime, PL_IF_ID, PL_EntityValue) VALUES ('sp_ProcessRemittanceAdvices','PRA.Update Lines', getdate(), @IL_IF_ID, NULL)
 	SELECT @PL_ID3 = SCOPE_IDENTITY()
 
-	--Insert New Data into RAL table
+	--Insert New Data into RAL table: 38 lines/page
 	SELECT IL.IL_ID  
 			,IL.IL_IF_ID
 			,IL.IL_EntityID
 			,IL.IL_EntityValue
-			,CONVERT(date,SUBSTRING(IL_Contents,2,8), 4) AS RAL_Date
+			,CONVERT(date,SUBSTRING(IL.IL_Contents,2,8), 4) AS RAL_Date
 			,LTRIM(RTRIM(SUBSTRING(IL.IL_Contents,10,16))) AS RAL_TransactionTypeRef
 			,LTRIM(RTRIM(SUBSTRING(IL.IL_Contents,26,12))) AS RAL_OurRef
 			,0 AS RAL_IsInfo
 			,dbo.fn_HandleNegatives(SUBSTRING(IL.IL_Contents,38,12)) AS RAL_TransactionValue			
 			,dbo.fn_HandleNegatives(SUBSTRING(IL.IL_Contents,50,12)) AS RAL_PaymentAmount
-			--,IL_Contents
+			
 			INTO tmpRemittanceAdviceLines
 		FROM Importedlines IL		
 		WHERE 1 = 1
@@ -299,7 +302,7 @@ BEGIN
 		  AND IL.IL_ID IN (SELECT IL_ID
 					FROM Importedlines
 					WHERE IL_PageLineID >= 22
-						AND IL_PageLineID <= 60
+						AND IL_PageLineID <= 59
 						AND IL_IF_ID = @IL_IF_ID 
 						AND IL_EntityType = 'Remittance Advice'
 						)
@@ -318,7 +321,7 @@ BEGIN
 	SELECT RAH_ID
 		,RAH_IF_ID
 		,RAH_EntityID
-		,RAL_Date
+		,CASE WHEN RAL_Date = '1900-01-01' THEN NULL ELSE RAL_Date END
 		,RAL_TransactionTypeRef
 		,RAL_OurRef
 		,RAL_IsInfo		
@@ -345,6 +348,7 @@ BEGIN
 
 	UPDATE ProcessLog SET PL_EndTime = GetDate() WHERE PL_ID = @PL_ID
 END
+
 
 
 GO
