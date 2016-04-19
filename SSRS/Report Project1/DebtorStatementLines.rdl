@@ -5,58 +5,58 @@
     <DataSource Name="SCCS_MDS_MultiSoft">
       <DataSourceReference>SCCS-MDS_MultiSoft</DataSourceReference>
       <rd:SecurityType>None</rd:SecurityType>
-      <rd:DataSourceID>61bf824e-9fcd-466d-942f-7550239bfe07</rd:DataSourceID>
+      <rd:DataSourceID>451bf15d-c99b-4c20-8807-93e0eda93e4f</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="ds_RemittanceAdviceLines">
+    <DataSet Name="ds_DebtorStatementLines">
       <SharedDataSet>
-        <SharedDataSetReference>RemittanceAdviceLines</SharedDataSetReference>
+        <SharedDataSetReference>DebtorStatementLines</SharedDataSetReference>
         <QueryParameters>
-          <QueryParameter Name="@RAL_RAH_ID">
-            <Value>=Parameters!RAL_RAH_ID.Value</Value>
+          <QueryParameter Name="@DSL_DSH_ID">
+            <Value>=Parameters!DSL_DSH_ID.Value</Value>
           </QueryParameter>
         </QueryParameters>
       </SharedDataSet>
       <Fields>
-        <Field Name="RAL_ID">
-          <DataField>RAL_ID</DataField>
+        <Field Name="DSL_ID">
+          <DataField>DSL_ID</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="RAL_RAH_ID">
-          <DataField>RAL_RAH_ID</DataField>
+        <Field Name="DSL_DSH_ID">
+          <DataField>DSL_DSH_ID</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="RAL_IF_ID">
-          <DataField>RAL_IF_ID</DataField>
+        <Field Name="DSL_IF_ID">
+          <DataField>DSL_IF_ID</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="RAL_EntityID">
-          <DataField>RAL_EntityID</DataField>
+        <Field Name="DSL_EntityID">
+          <DataField>DSL_EntityID</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="RAL_Date">
-          <DataField>RAL_Date</DataField>
+        <Field Name="DSL_Date">
+          <DataField>DSL_Date</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="RAL_TransactionTypeRef">
-          <DataField>RAL_TransactionTypeRef</DataField>
+        <Field Name="DSL_References">
+          <DataField>DSL_References</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="RAL_OurRef">
-          <DataField>RAL_OurRef</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="RAL_IsInfo">
-          <DataField>RAL_IsInfo</DataField>
+        <Field Name="DSL_IsBroughtForward">
+          <DataField>DSL_IsBroughtForward</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
-        <Field Name="RAL_TransactionValue">
-          <DataField>RAL_TransactionValue</DataField>
+        <Field Name="DSL_IsInfo">
+          <DataField>DSL_IsInfo</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="DSL_TransactionValue">
+          <DataField>DSL_TransactionValue</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="RAL_PaymentAmount">
-          <DataField>RAL_PaymentAmount</DataField>
+        <Field Name="DSL_PaymentAmount">
+          <DataField>DSL_PaymentAmount</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
@@ -73,10 +73,7 @@
                   <Width>3.6cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.6cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>3.6cm</Width>
+                  <Width>7.2cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>3.6cm</Width>
@@ -91,7 +88,7 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox24">
+                        <Textbox Name="Textbox12">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -108,7 +105,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox24</rd:DefaultName>
+                          <rd:DefaultName>Textbox12</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#404040</Color>
@@ -127,14 +124,15 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox26">
+                        <Textbox Name="Textbox16">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Transaction Type &amp; Reference</Value>
+                                  <Value>Transaction
+Our Reference   Your Reference</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
                                     <FontWeight>Bold</FontWeight>
@@ -144,7 +142,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox26</rd:DefaultName>
+                          <rd:DefaultName>Textbox16</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#404040</Color>
@@ -163,43 +161,7 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox28">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Our Reference</Value>
-                                  <Style>
-                                    <FontFamily>Calibri</FontFamily>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox28</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>#404040</Color>
-                              <Style>Solid</Style>
-                              <Width>0.5pt</Width>
-                            </Border>
-                            <BackgroundColor>Gainsboro</BackgroundColor>
-                            <VerticalAlign>Top</VerticalAlign>
-                            <PaddingLeft>10pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox30">
+                        <Textbox Name="Textbox18">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -219,7 +181,7 @@ $</Value>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox30</rd:DefaultName>
+                          <rd:DefaultName>Textbox18</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#404040</Color>
@@ -238,14 +200,14 @@ $</Value>
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox33">
+                        <Textbox Name="Textbox20">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Payment Amount(s)
+                                  <Value>Payment Amount
 $</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
@@ -258,7 +220,7 @@ $</Value>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox33</rd:DefaultName>
+                          <rd:DefaultName>Textbox20</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#404040</Color>
@@ -278,29 +240,29 @@ $</Value>
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.4cm</Height>
+                  <Height>0.45cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="RAL_Date">
+                        <Textbox Name="DSL_Date">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!RAL_Date.Value</Value>
+                                  <Value>=Fields!DSL_Date.Value</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
                                     <FontSize>9pt</FontSize>
-                                    <Color>=iif(Fields!RAL_IsInfo.Value = True, "White","Default")</Color>
+                                    <Color>=iif(Fields!DSL_IsInfo.Value = True, "White","Default")</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>RAL_Date</rd:DefaultName>
+                          <rd:DefaultName>DSL_Date</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#404040</Color>
@@ -317,147 +279,32 @@ $</Value>
                             <PaddingLeft>10pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>0.5pt</PaddingTop>
-                            <PaddingBottom>0.5pt</PaddingBottom>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="RAL_TransactionTypeRef">
+                        <Textbox Name="DSL_References">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!RAL_TransactionTypeRef.Value</Value>
+                                  <Value>=Fields!DSL_References.Value</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
                                     <FontSize>9pt</FontSize>
-                                    <Color>=iif(Fields!RAL_IsInfo.Value = True, "White","Default")</Color>
+                                    <Color>=iif(Fields!DSL_IsInfo.Value = True, "White","Default")</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>RAL_TransactionTypeRef</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <RightBorder>
-                              <Style>Solid</Style>
-                            </RightBorder>
-                            <VerticalAlign>Top</VerticalAlign>
-                            <PaddingLeft>10pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>0.5pt</PaddingTop>
-                            <PaddingBottom>0.5pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="RAL_OurRef">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!RAL_OurRef.Value</Value>
-                                  <Style>
-                                    <FontFamily>Calibri</FontFamily>
-                                    <FontSize>9pt</FontSize>
-                                    <Color>=iif(Fields!RAL_IsInfo.Value = True, "White","Default")</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style />
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>RAL_OurRef</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <RightBorder>
-                              <Style>Solid</Style>
-                            </RightBorder>
-                            <VerticalAlign>Top</VerticalAlign>
-                            <PaddingLeft>10pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>0.5pt</PaddingTop>
-                            <PaddingBottom>0.5pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="RAL_TransactionValue">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!RAL_TransactionValue.Value</Value>
-                                  <Style>
-                                    <FontFamily>Calibri</FontFamily>
-                                    <FontSize>9pt</FontSize>
-                                    <Color>=iif(Fields!RAL_IsInfo.Value = True, "White","Default")</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Right</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>RAL_TransactionValue</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <RightBorder>
-                              <Style>Solid</Style>
-                            </RightBorder>
-                            <VerticalAlign>Top</VerticalAlign>
-                            <PaddingLeft>10pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>0.5pt</PaddingTop>
-                            <PaddingBottom>0.5pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="RAL_PaymentAmount">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!RAL_PaymentAmount.Value</Value>
-                                  <Style>
-                                    <FontFamily>Calibri</FontFamily>
-                                    <FontSize>9pt</FontSize>
-                                    <Color>=iif(Fields!RAL_IsInfo.Value = True, "White","Default")</Color>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Right</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>RAL_PaymentAmount</rd:DefaultName>
+                          <rd:DefaultName>DSL_References</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>#404040</Color>
@@ -470,14 +317,99 @@ $</Value>
                             <BottomBorder>
                               <Style>None</Style>
                             </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
                             <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>10pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>0.5pt</PaddingTop>
-                            <PaddingBottom>0.5pt</PaddingBottom>
+                            <PaddingBottom>1pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="DSL_TransactionValue">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!DSL_TransactionValue.Value</Value>
+                                  <Style>
+                                    <FontFamily>Calibri</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                    <Color>=iif(Fields!DSL_IsInfo.Value = True, "White","Default")</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>DSL_TransactionValue</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#404040</Color>
+                              <Style>Solid</Style>
+                              <Width>0.5pt</Width>
+                            </Border>
+                            <TopBorder>
+                              <Style>=IIF(Fields!DSL_IsBroughtForward.Value = True, "Dashed", "None")</Style>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Style>=IIF(Fields!DSL_IsBroughtForward.Value = True, "Double", "None")</Style>
+                            </BottomBorder>
+                            <VerticalAlign>Top</VerticalAlign>
+                            <PaddingLeft>10pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>0.5pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="DSL_PaymentAmount">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!DSL_PaymentAmount.Value</Value>
+                                  <Style>
+                                    <FontFamily>Calibri</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                    <Color>=iif(Fields!DSL_IsInfo.Value = True, "White","Default")</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>DSL_PaymentAmount</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#404040</Color>
+                              <Style>Solid</Style>
+                              <Width>0.5pt</Width>
+                            </Border>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Style>None</Style>
+                            </BottomBorder>
+                            <VerticalAlign>Top</VerticalAlign>
+                            <PaddingLeft>10pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>0.5pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -488,7 +420,6 @@ $</Value>
             </TablixBody>
             <TablixColumnHierarchy>
               <TablixMembers>
-                <TablixMember />
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
@@ -508,9 +439,9 @@ $</Value>
             </TablixRowHierarchy>
             <RepeatColumnHeaders>true</RepeatColumnHeaders>
             <FixedColumnHeaders>true</FixedColumnHeaders>
-            <DataSetName>ds_RemittanceAdviceLines</DataSetName>
+            <DataSetName>ds_DebtorStatementLines</DataSetName>
             <Left>0cm</Left>
-            <Height>1.4cm</Height>
+            <Height>1.45cm</Height>
             <Width>18cm</Width>
             <Style>
               <Border>
@@ -522,7 +453,7 @@ $</Value>
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>1.4cm</Height>
+        <Height>1.45cm</Height>
         <Style />
       </Body>
       <Width>18cm</Width>
@@ -534,18 +465,14 @@ $</Value>
         <TopMargin>0cm</TopMargin>
         <BottomMargin>0cm</BottomMargin>
         <ColumnSpacing>1.27cm</ColumnSpacing>
-        <Style>
-          <Border>
-            <Style>Solid</Style>
-          </Border>
-        </Style>
+        <Style />
       </Page>
     </ReportSection>
   </ReportSections>
   <ReportParameters>
-    <ReportParameter Name="RAL_RAH_ID">
+    <ReportParameter Name="DSL_DSH_ID">
       <DataType>String</DataType>
-      <Prompt>RAL RAH ID</Prompt>
+      <Prompt>DSL DSH ID</Prompt>
     </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
@@ -556,7 +483,7 @@ $</Value>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>0</RowIndex>
-          <ParameterName>RAL_RAH_ID</ParameterName>
+          <ParameterName>DSL_DSH_ID</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>
@@ -564,5 +491,5 @@ $</Value>
   <Language>en-US</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <rd:ReportID>997caa3e-3d33-4c08-9740-c8bb2691fe05</rd:ReportID>
+  <rd:ReportID>f141ebba-e008-4efc-8ded-5220ea484ce5</rd:ReportID>
 </Report>

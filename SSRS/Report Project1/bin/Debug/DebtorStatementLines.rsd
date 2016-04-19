@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition">
+  <DataSet Name="">
+    <Query>
+      <DataSourceReference>SCCS-MDS_MultiSoft</DataSourceReference>
+      <DataSetParameters>
+        <DataSetParameter Name="@DSL_DSH_ID">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>Object</rd:DbType>
+        </DataSetParameter>
+      </DataSetParameters>
+      <CommandText>SELECT        DSL_ID, DSL_DSH_ID, DSL_IF_ID, DSL_EntityID, DSL_Date, DSL_References, DSL_IsBroughtForward, DSL_IsInfo, DSL_TransactionValue, 
+                         DSL_PaymentAmount
+FROM            vw_DebtorStatementLine
+WHERE 	DSL_DSH_ID = @DSL_DSH_ID</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="DSL_ID">
+        <DataField>DSL_ID</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="DSL_DSH_ID">
+        <DataField>DSL_DSH_ID</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="DSL_IF_ID">
+        <DataField>DSL_IF_ID</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="DSL_EntityID">
+        <DataField>DSL_EntityID</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="DSL_Date">
+        <DataField>DSL_Date</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="DSL_References">
+        <DataField>DSL_References</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="DSL_IsBroughtForward">
+        <DataField>DSL_IsBroughtForward</DataField>
+        <rd:TypeName>System.Boolean</rd:TypeName>
+      </Field>
+      <Field Name="DSL_IsInfo">
+        <DataField>DSL_IsInfo</DataField>
+        <rd:TypeName>System.Boolean</rd:TypeName>
+      </Field>
+      <Field Name="DSL_TransactionValue">
+        <DataField>DSL_TransactionValue</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="DSL_PaymentAmount">
+        <DataField>DSL_PaymentAmount</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

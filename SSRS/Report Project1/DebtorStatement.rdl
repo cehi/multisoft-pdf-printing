@@ -1,56 +1,81 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition">
   <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="SCCS_MDS_MultiSoft">
+      <DataSourceReference>SCCS-MDS_MultiSoft</DataSourceReference>
+      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>cecd4a4e-843d-4b76-a554-6002ecaec173</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
   <DataSets>
-    <DataSet Name="ds_RemittanceAdviceHeader">
+    <DataSet Name="ds_DebtorStatementHeader">
       <SharedDataSet>
-        <SharedDataSetReference>RemittanceAdviceHeader</SharedDataSetReference>
+        <SharedDataSetReference>DebtorStatementHeader</SharedDataSetReference>
         <QueryParameters>
-          <QueryParameter Name="@RAH_SuppNo">
-            <Value>=Parameters!RAH_SuppNo.Value</Value>
-            <rd:UserDefined>true</rd:UserDefined>
+          <QueryParameter Name="@DSH_AccountNo">
+            <Value>=Parameters!DSH_AccountNo.Value</Value>
           </QueryParameter>
-          <QueryParameter Name="@RAH_PrintDate">
-            <Value>=Parameters!RAH_PrintDate.Value</Value>
-            <rd:UserDefined>true</rd:UserDefined>
+          <QueryParameter Name="@DSH_StatementDate">
+            <Value>=Parameters!DSH_StatementDate.Value</Value>
           </QueryParameter>
         </QueryParameters>
       </SharedDataSet>
       <Fields>
-        <Field Name="RAH_ID">
-          <DataField>RAH_ID</DataField>
+        <Field Name="DSH_ID">
+          <DataField>DSH_ID</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="RAH_EntityValue">
-          <DataField>RAH_EntityValue</DataField>
+        <Field Name="DSH_EntityValue">
+          <DataField>DSH_EntityValue</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="RAH_IF_ID">
-          <DataField>RAH_IF_ID</DataField>
+        <Field Name="DSH_IF_ID">
+          <DataField>DSH_IF_ID</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="RAH_EntityID">
-          <DataField>RAH_EntityID</DataField>
+        <Field Name="DSH_EntityID">
+          <DataField>DSH_EntityID</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="RAH_CU_ID">
-          <DataField>RAH_CU_ID</DataField>
+        <Field Name="DSH_CU_ID">
+          <DataField>DSH_CU_ID</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="RAH_SuppNo">
-          <DataField>RAH_SuppNo</DataField>
+        <Field Name="DSH_AccountNo">
+          <DataField>DSH_AccountNo</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="RAH_SuppNameAddress">
-          <DataField>RAH_SuppNameAddress</DataField>
+        <Field Name="DSH_StatementDate">
+          <DataField>DSH_StatementDate</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="RAH_TotalAmountPaid">
-          <DataField>RAH_TotalAmountPaid</DataField>
+        <Field Name="DSH_CustomerNameAddress">
+          <DataField>DSH_CustomerNameAddress</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="RAH_PrintDate">
-          <DataField>RAH_PrintDate</DataField>
+        <Field Name="DSH_AccountBalance">
+          <DataField>DSH_AccountBalance</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DSH_3MonthsBalance">
+          <DataField>DSH_3MonthsBalance</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DSH_2MonthsBalance">
+          <DataField>DSH_2MonthsBalance</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DSH_1MonthBalance">
+          <DataField>DSH_1MonthBalance</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DSH_CurrentBalance">
+          <DataField>DSH_CurrentBalance</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DSH_UnallocatedCash">
+          <DataField>DSH_UnallocatedCash</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
@@ -60,25 +85,26 @@
     <ReportSection>
       <Body>
         <ReportItems>
-          <Subreport Name="Subreport2">
-            <ReportName>RemittanceAdviceLines</ReportName>
+          <Subreport Name="Subreport1">
+            <ReportName>DebtorStatementLines</ReportName>
             <Parameters>
-              <Parameter Name="RAL_RAH_ID">
-                <Value>=First(Fields!RAH_ID.Value, "ds_RemittanceAdviceHeader")</Value>
+              <Parameter Name="DSL_DSH_ID">
+                <Value>=First(Fields!DSH_ID.Value, "ds_DebtorStatementHeader")</Value>
               </Parameter>
             </Parameters>
             <Top>0cm</Top>
             <Left>0.9cm</Left>
             <Height>1.45cm</Height>
-            <Width>18cm</Width>
+            <Width>18.1cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
               </Border>
+              <FontFamily>Calibri</FontFamily>
             </Style>
           </Subreport>
         </ReportItems>
-        <Height>1.48528cm</Height>
+        <Height>1.45cm</Height>
         <Style />
       </Body>
       <Width>20cm</Width>
@@ -208,7 +234,7 @@ PO Box 1042, Hawthorn, Victoria 3122, Australia    Tel: (03) 9804 1700  Fax: (03
                 </Image>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Left>0.79375cm</Left>
+              <Left>1cm</Left>
               <Height>2.3cm</Height>
               <Width>18cm</Width>
               <Style>
@@ -219,13 +245,13 @@ PO Box 1042, Hawthorn, Victoria 3122, Australia    Tel: (03) 9804 1700  Fax: (03
             </Rectangle>
             <Rectangle Name="Rectangle1">
               <ReportItems>
-                <Textbox Name="RAH_SuppCode">
+                <Textbox Name="DSH_AccountNo">
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>=First(Fields!RAH_SuppNo.Value, "ds_RemittanceAdviceHeader")</Value>
+                          <Value>=First(Fields!DSH_AccountNo.Value, "ds_DebtorStatementHeader")</Value>
                           <Style>
                             <FontFamily>Calibri</FontFamily>
                           </Style>
@@ -236,7 +262,7 @@ PO Box 1042, Hawthorn, Victoria 3122, Australia    Tel: (03) 9804 1700  Fax: (03
                       </Style>
                     </Paragraph>
                   </Paragraphs>
-                  <Top>1.5cm</Top>
+                  <Top>1.6cm</Top>
                   <Left>8.8cm</Left>
                   <Height>0.5cm</Height>
                   <Width>1.7cm</Width>
@@ -251,13 +277,13 @@ PO Box 1042, Hawthorn, Victoria 3122, Australia    Tel: (03) 9804 1700  Fax: (03
                     <PaddingRight>2pt</PaddingRight>
                   </Style>
                 </Textbox>
-                <Textbox Name="RAH_SuppNameAddress">
+                <Textbox Name="txtCustomerName">
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>=First(Fields!RAH_SuppNameAddress.Value, "ds_RemittanceAdviceHeader")</Value>
+                          <Value>Customer Name &amp; Address</Value>
                           <Style>
                             <FontFamily>Calibri</FontFamily>
                           </Style>
@@ -266,11 +292,69 @@ PO Box 1042, Hawthorn, Victoria 3122, Australia    Tel: (03) 9804 1700  Fax: (03
                       <Style />
                     </Paragraph>
                   </Paragraphs>
-                  <Top>2cm</Top>
+                  <Top>1.6cm</Top>
+                  <Left>0.1cm</Left>
+                  <Height>0.5cm</Height>
+                  <Width>5cm</Width>
+                  <ZIndex>1</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                  </Style>
+                </Textbox>
+                <Textbox Name="txtAccountNo">
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>Account No.</Value>
+                          <Style>
+                            <FontFamily>Calibri</FontFamily>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style />
+                    </Paragraph>
+                  </Paragraphs>
+                  <Top>1.6cm</Top>
+                  <Left>6.7cm</Left>
+                  <Height>0.5cm</Height>
+                  <Width>2.1cm</Width>
+                  <ZIndex>2</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                  </Style>
+                </Textbox>
+                <Textbox Name="DSH_CustomerNameAddress">
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>=First(Fields!DSH_CustomerNameAddress.Value, "ds_DebtorStatementHeader")</Value>
+                          <Style>
+                            <FontFamily>Calibri</FontFamily>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style />
+                    </Paragraph>
+                  </Paragraphs>
+                  <Top>2.1cm</Top>
                   <Left>0.1cm</Left>
                   <Height>2.5cm</Height>
                   <Width>10.4cm</Width>
-                  <ZIndex>1</ZIndex>
+                  <ZIndex>3</ZIndex>
                   <Style>
                     <Border>
                       <Color>#404040</Color>
@@ -284,69 +368,11 @@ PO Box 1042, Hawthorn, Victoria 3122, Australia    Tel: (03) 9804 1700  Fax: (03
                     <PaddingBottom>2pt</PaddingBottom>
                   </Style>
                 </Textbox>
-                <Textbox Name="txtSuppName">
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>Supplier Name &amp; Address</Value>
-                          <Style>
-                            <FontFamily>Calibri</FontFamily>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style />
-                    </Paragraph>
-                  </Paragraphs>
-                  <Top>1.5cm</Top>
-                  <Left>0.1cm</Left>
-                  <Height>0.5cm</Height>
-                  <Width>5cm</Width>
-                  <ZIndex>2</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>None</Style>
-                    </Border>
-                    <VerticalAlign>Middle</VerticalAlign>
-                    <PaddingLeft>2pt</PaddingLeft>
-                    <PaddingRight>2pt</PaddingRight>
-                  </Style>
-                </Textbox>
-                <Textbox Name="txtSuppNo">
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>Supplier No.</Value>
-                          <Style>
-                            <FontFamily>Calibri</FontFamily>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style />
-                    </Paragraph>
-                  </Paragraphs>
-                  <Top>1.5cm</Top>
-                  <Left>6.7cm</Left>
-                  <Height>0.5cm</Height>
-                  <Width>2.1cm</Width>
-                  <ZIndex>3</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>None</Style>
-                    </Border>
-                    <VerticalAlign>Middle</VerticalAlign>
-                    <PaddingLeft>2pt</PaddingLeft>
-                    <PaddingRight>2pt</PaddingRight>
-                  </Style>
-                </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Top>3.17667cm</Top>
-              <Left>0.69375cm</Left>
-              <Height>4.6cm</Height>
+              <Top>3cm</Top>
+              <Left>0.9cm</Left>
+              <Height>4.62361cm</Height>
               <Width>10.6cm</Width>
               <ZIndex>1</ZIndex>
               <Style>
@@ -357,17 +383,15 @@ PO Box 1042, Hawthorn, Victoria 3122, Australia    Tel: (03) 9804 1700  Fax: (03
             </Rectangle>
             <Rectangle Name="Rectangle2">
               <ReportItems>
-                <Textbox Name="txtRemittanceAdvice">
+                <Textbox Name="txtDS_StatementDate">
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>Remittance Advice</Value>
+                          <Value>=First(Fields!DSH_StatementDate.Value, "ds_DebtorStatementHeader")</Value>
                           <Style>
                             <FontFamily>Calibri</FontFamily>
-                            <FontSize>16pt</FontSize>
-                            <FontWeight>Normal</FontWeight>
                           </Style>
                         </TextRun>
                       </TextRuns>
@@ -376,9 +400,10 @@ PO Box 1042, Hawthorn, Victoria 3122, Australia    Tel: (03) 9804 1700  Fax: (03
                       </Style>
                     </Paragraph>
                   </Paragraphs>
-                  <Left>0.1cm</Left>
-                  <Height>1.25cm</Height>
-                  <Width>6.6cm</Width>
+                  <Top>1.6cm</Top>
+                  <Left>3.4cm</Left>
+                  <Height>0.8cm</Height>
+                  <Width>3.3cm</Width>
                   <Style>
                     <Border>
                       <Color>#404040</Color>
@@ -392,45 +417,50 @@ PO Box 1042, Hawthorn, Victoria 3122, Australia    Tel: (03) 9804 1700  Fax: (03
                     <PaddingBottom>2pt</PaddingBottom>
                   </Style>
                 </Textbox>
-                <Textbox Name="txtForEnquiries">
+                <Textbox Name="txtAccountStatement">
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>For enquiries about this payment:</Value>
+                          <Value>Statement of Account</Value>
                           <Style>
                             <FontFamily>Calibri</FontFamily>
-                            <FontWeight>Bold</FontWeight>
+                            <FontSize>16pt</FontSize>
+                            <FontWeight>Normal</FontWeight>
                           </Style>
                         </TextRun>
                       </TextRuns>
-                      <Style />
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                      </Style>
                     </Paragraph>
                   </Paragraphs>
-                  <Top>2cm</Top>
+                  <Top>0.04in</Top>
                   <Left>0.1cm</Left>
-                  <Height>0.6cm</Height>
+                  <Height>1.25cm</Height>
                   <Width>6.6cm</Width>
                   <ZIndex>1</ZIndex>
                   <Style>
                     <Border>
-                      <Style>None</Style>
+                      <Color>#404040</Color>
+                      <Style>Solid</Style>
+                      <Width>0.5pt</Width>
                     </Border>
                     <VerticalAlign>Middle</VerticalAlign>
-                    <PaddingLeft>4pt</PaddingLeft>
+                    <PaddingLeft>2pt</PaddingLeft>
                     <PaddingRight>2pt</PaddingRight>
                     <PaddingTop>2pt</PaddingTop>
                     <PaddingBottom>2pt</PaddingBottom>
                   </Style>
                 </Textbox>
-                <Textbox Name="txtAccounts">
+                <Textbox Name="txtStatementDate">
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>Accounts:     (03) 9804 1726</Value>
+                          <Value>Statement Date</Value>
                           <Style>
                             <FontFamily>Calibri</FontFamily>
                             <FontWeight>Normal</FontWeight>
@@ -440,14 +470,16 @@ PO Box 1042, Hawthorn, Victoria 3122, Australia    Tel: (03) 9804 1700  Fax: (03
                       <Style />
                     </Paragraph>
                   </Paragraphs>
-                  <Top>2.65cm</Top>
+                  <Top>1.6cm</Top>
                   <Left>0.1cm</Left>
-                  <Height>0.5cm</Height>
-                  <Width>6.6cm</Width>
+                  <Height>0.8cm</Height>
+                  <Width>3.3cm</Width>
                   <ZIndex>2</ZIndex>
                   <Style>
                     <Border>
-                      <Style>None</Style>
+                      <Color>#404040</Color>
+                      <Style>Solid</Style>
+                      <Width>0.5pt</Width>
                     </Border>
                     <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>4pt</PaddingLeft>
@@ -490,15 +522,22 @@ PO Box 1042, Hawthorn, Victoria 3122, Australia    Tel: (03) 9804 1700  Fax: (03
                             <FontSize>12pt</FontSize>
                           </Style>
                         </TextRun>
+                        <TextRun>
+                          <Value xml:space="preserve">    </Value>
+                          <Style>
+                            <FontFamily>Calibri</FontFamily>
+                            <FontSize>12pt</FontSize>
+                          </Style>
+                        </TextRun>
                       </TextRuns>
                       <Style>
                         <TextAlign>Center</TextAlign>
                       </Style>
                     </Paragraph>
                   </Paragraphs>
-                  <Top>3.5cm</Top>
+                  <Top>2.4cm</Top>
                   <Left>0.1cm</Left>
-                  <Height>1cm</Height>
+                  <Height>0.8cm</Height>
                   <Width>6.6cm</Width>
                   <ZIndex>3</ZIndex>
                   <Visibility>
@@ -506,7 +545,9 @@ PO Box 1042, Hawthorn, Victoria 3122, Australia    Tel: (03) 9804 1700  Fax: (03
                   </Visibility>
                   <Style>
                     <Border>
-                      <Style>None</Style>
+                      <Color>#404040</Color>
+                      <Style>Solid</Style>
+                      <Width>0.5pt</Width>
                     </Border>
                     <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
@@ -515,11 +556,75 @@ PO Box 1042, Hawthorn, Victoria 3122, Australia    Tel: (03) 9804 1700  Fax: (03
                     <PaddingBottom>2pt</PaddingBottom>
                   </Style>
                 </Textbox>
+                <Textbox Name="txtForEnquiries">
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>For enquiries about this payment:</Value>
+                          <Style>
+                            <FontFamily>Calibri</FontFamily>
+                            <FontWeight>Bold</FontWeight>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style />
+                    </Paragraph>
+                  </Paragraphs>
+                  <Top>3.55cm</Top>
+                  <Left>0.1cm</Left>
+                  <Height>0.6cm</Height>
+                  <Width>6.6cm</Width>
+                  <ZIndex>4</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
+                    <PaddingLeft>4pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="txtAccounts">
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>Accounts:     (03) 9804 1726</Value>
+                          <Style>
+                            <FontFamily>Calibri</FontFamily>
+                            <FontWeight>Normal</FontWeight>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style />
+                    </Paragraph>
+                  </Paragraphs>
+                  <Top>4cm</Top>
+                  <Left>0.1cm</Left>
+                  <Height>0.5cm</Height>
+                  <Width>6.6cm</Width>
+                  <ZIndex>5</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
+                    <PaddingLeft>4pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Top>3.17667cm</Top>
-              <Left>11.99375cm</Left>
-              <Height>4.6cm</Height>
+              <Top>3cm</Top>
+              <Left>12.3cm</Left>
+              <Height>4.7cm</Height>
               <Width>6.8cm</Width>
               <ZIndex>2</ZIndex>
               <Style>
@@ -536,50 +641,456 @@ PO Box 1042, Hawthorn, Victoria 3122, Australia    Tel: (03) 9804 1700  Fax: (03
           </Style>
         </PageHeader>
         <PageFooter>
-          <Height>2.7cm</Height>
+          <Height>4.5cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
             <Rectangle Name="Rectangle4">
               <ReportItems>
-                <Textbox Name="Textbox14">
+                <Textbox Name="txtAgedBalances">
                   <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>All monetary amounts on this Remittance Advice are in US Dollars</Value>
+                          <Value>Aged Balances</Value>
                           <Style>
-                            <Color>=IIf(First(Fields!RAH_CU_ID.Value, "ds_RemittanceAdviceHeader") = "USD", "Black", "White")</Color>
+                            <FontFamily>Calibri</FontFamily>
+                            <FontSize>12pt</FontSize>
                           </Style>
                         </TextRun>
                       </TextRuns>
-                      <Style />
+                      <Style>
+                        <TextAlign>Center</TextAlign>
+                      </Style>
                     </Paragraph>
                   </Paragraphs>
-                  <rd:DefaultName>Textbox14</rd:DefaultName>
-                  <Top>0.7cm</Top>
-                  <Left>1cm</Left>
-                  <Height>1.5cm</Height>
-                  <Width>4cm</Width>
+                  <Top>0.3cm</Top>
+                  <Left>0.1cm</Left>
+                  <Height>0.6cm</Height>
+                  <Width>10.8cm</Width>
+                  <Visibility>
+                    <Hidden>=iif(Globals!PageNumber=Globals!TotalPages,False,True)</Hidden>
+                  </Visibility>
                   <Style>
                     <Border>
-                      <Style>None</Style>
+                      <Style>Solid</Style>
                     </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
                     <PaddingRight>2pt</PaddingRight>
-                    <PaddingTop>2pt</PaddingTop>
-                    <PaddingBottom>2pt</PaddingBottom>
+                    <PaddingTop>1pt</PaddingTop>
+                    <PaddingBottom>1pt</PaddingBottom>
                   </Style>
                 </Textbox>
-                <Textbox Name="txtTotalAmount">
+                <Textbox Name="txt3Months">
+                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>TOTAL AMOUNT PAID</Value>
+                          <Value>3 Months</Value>
+                          <Style>
+                            <FontFamily>Calibri</FontFamily>
+                            <FontSize>12pt</FontSize>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                      </Style>
+                    </Paragraph>
+                  </Paragraphs>
+                  <Top>0.9cm</Top>
+                  <Left>0.1cm</Left>
+                  <Height>0.6cm</Height>
+                  <Width>3.6cm</Width>
+                  <ZIndex>1</ZIndex>
+                  <Visibility>
+                    <Hidden>=iif(Globals!PageNumber=Globals!TotalPages,False,True)</Hidden>
+                  </Visibility>
+                  <Style>
+                    <Border>
+                      <Style>Solid</Style>
+                    </Border>
+                    <BackgroundColor>Silver</BackgroundColor>
+                    <VerticalAlign>Middle</VerticalAlign>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>10pt</PaddingRight>
+                    <PaddingTop>1pt</PaddingTop>
+                    <PaddingBottom>1pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="txt2Months">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>2 Months</Value>
+                          <Style>
+                            <FontFamily>Calibri</FontFamily>
+                            <FontSize>12pt</FontSize>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                      </Style>
+                    </Paragraph>
+                  </Paragraphs>
+                  <Top>0.9cm</Top>
+                  <Left>3.7cm</Left>
+                  <Height>0.6cm</Height>
+                  <Width>3.6cm</Width>
+                  <ZIndex>2</ZIndex>
+                  <Visibility>
+                    <Hidden>=iif(Globals!PageNumber=Globals!TotalPages,False,True)</Hidden>
+                  </Visibility>
+                  <Style>
+                    <Border>
+                      <Style>Solid</Style>
+                    </Border>
+                    <BackgroundColor>LightGrey</BackgroundColor>
+                    <VerticalAlign>Middle</VerticalAlign>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>10pt</PaddingRight>
+                    <PaddingTop>1pt</PaddingTop>
+                    <PaddingBottom>1pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="txt1Month">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>1 Month</Value>
+                          <Style>
+                            <FontFamily>Calibri</FontFamily>
+                            <FontSize>12pt</FontSize>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                      </Style>
+                    </Paragraph>
+                  </Paragraphs>
+                  <Top>0.9cm</Top>
+                  <Left>7.3cm</Left>
+                  <Height>0.6cm</Height>
+                  <Width>3.6cm</Width>
+                  <ZIndex>3</ZIndex>
+                  <Visibility>
+                    <Hidden>=iif(Globals!PageNumber=Globals!TotalPages,False,True)</Hidden>
+                  </Visibility>
+                  <Style>
+                    <Border>
+                      <Style>Solid</Style>
+                    </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>10pt</PaddingRight>
+                    <PaddingTop>1pt</PaddingTop>
+                    <PaddingBottom>1pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="txtCurrentBalance">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>Current Balance</Value>
+                          <Style>
+                            <FontFamily>Calibri</FontFamily>
+                            <FontSize>12pt</FontSize>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                      </Style>
+                    </Paragraph>
+                  </Paragraphs>
+                  <Top>0.3cm</Top>
+                  <Left>10.9cm</Left>
+                  <Height>1.2cm</Height>
+                  <Width>3.6cm</Width>
+                  <ZIndex>4</ZIndex>
+                  <Visibility>
+                    <Hidden>=iif(Globals!PageNumber=Globals!TotalPages,False,True)</Hidden>
+                  </Visibility>
+                  <Style>
+                    <Border>
+                      <Style>Solid</Style>
+                    </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>10pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="txtUnallocatedCash">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>Unallocated
+Cash / Credits</Value>
+                          <Style>
+                            <FontFamily>Calibri</FontFamily>
+                            <FontSize>12pt</FontSize>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                      </Style>
+                    </Paragraph>
+                  </Paragraphs>
+                  <Top>0.3cm</Top>
+                  <Left>14.5cm</Left>
+                  <Height>1.2cm</Height>
+                  <Width>3.6cm</Width>
+                  <ZIndex>5</ZIndex>
+                  <Visibility>
+                    <Hidden>=iif(Globals!PageNumber=Globals!TotalPages,False,True)</Hidden>
+                  </Visibility>
+                  <Style>
+                    <Border>
+                      <Style>Solid</Style>
+                    </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>10pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="DSH_3MonthsBalance">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>=First(Fields!DSH_3MonthsBalance.Value, "ds_DebtorStatementHeader")</Value>
+                          <Style>
+                            <FontFamily>Calibri</FontFamily>
+                            <FontSize>12pt</FontSize>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                      </Style>
+                    </Paragraph>
+                  </Paragraphs>
+                  <Top>1.5cm</Top>
+                  <Left>0.1cm</Left>
+                  <Height>0.8cm</Height>
+                  <Width>3.6cm</Width>
+                  <ZIndex>6</ZIndex>
+                  <Visibility>
+                    <Hidden>=iif(Globals!PageNumber=Globals!TotalPages,False,True)</Hidden>
+                  </Visibility>
+                  <Style>
+                    <Border>
+                      <Style>Solid</Style>
+                    </Border>
+                    <BackgroundColor>Silver</BackgroundColor>
+                    <VerticalAlign>Middle</VerticalAlign>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>10pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="DSH_2MonthsBalance">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>=First(Fields!DSH_2MonthsBalance.Value, "ds_DebtorStatementHeader")</Value>
+                          <Style>
+                            <FontFamily>Calibri</FontFamily>
+                            <FontSize>12pt</FontSize>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                      </Style>
+                    </Paragraph>
+                  </Paragraphs>
+                  <Top>1.5cm</Top>
+                  <Left>3.7cm</Left>
+                  <Height>0.8cm</Height>
+                  <Width>3.6cm</Width>
+                  <ZIndex>7</ZIndex>
+                  <Visibility>
+                    <Hidden>=iif(Globals!PageNumber=Globals!TotalPages,False,True)</Hidden>
+                  </Visibility>
+                  <Style>
+                    <Border>
+                      <Style>Solid</Style>
+                    </Border>
+                    <BackgroundColor>LightGrey</BackgroundColor>
+                    <VerticalAlign>Middle</VerticalAlign>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>10pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="DSH_1MonthBalance">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>=First(Fields!DSH_1MonthBalance.Value, "ds_DebtorStatementHeader")</Value>
+                          <Style>
+                            <FontFamily>Calibri</FontFamily>
+                            <FontSize>12pt</FontSize>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                      </Style>
+                    </Paragraph>
+                  </Paragraphs>
+                  <Top>1.5cm</Top>
+                  <Left>7.3cm</Left>
+                  <Height>0.8cm</Height>
+                  <Width>3.6cm</Width>
+                  <ZIndex>8</ZIndex>
+                  <Visibility>
+                    <Hidden>=iif(Globals!PageNumber=Globals!TotalPages,False,True)</Hidden>
+                  </Visibility>
+                  <Style>
+                    <Border>
+                      <Style>Solid</Style>
+                    </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>10pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="DSH_CurrentBalance">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>=First(Fields!DSH_CurrentBalance.Value, "ds_DebtorStatementHeader")</Value>
+                          <Style>
+                            <FontFamily>Calibri</FontFamily>
+                            <FontSize>12pt</FontSize>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                      </Style>
+                    </Paragraph>
+                  </Paragraphs>
+                  <Top>1.5cm</Top>
+                  <Left>10.9cm</Left>
+                  <Height>0.8cm</Height>
+                  <Width>3.6cm</Width>
+                  <ZIndex>9</ZIndex>
+                  <Visibility>
+                    <Hidden>=iif(Globals!PageNumber=Globals!TotalPages,False,True)</Hidden>
+                  </Visibility>
+                  <Style>
+                    <Border>
+                      <Style>Solid</Style>
+                    </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>10pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="DSH_UnallocatedCash">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>=First(Fields!DSH_UnallocatedCash.Value, "ds_DebtorStatementHeader")</Value>
+                          <Style>
+                            <FontFamily>Calibri</FontFamily>
+                            <FontSize>12pt</FontSize>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                      </Style>
+                    </Paragraph>
+                  </Paragraphs>
+                  <Top>1.5cm</Top>
+                  <Left>14.5cm</Left>
+                  <Height>0.8cm</Height>
+                  <Width>3.6cm</Width>
+                  <ZIndex>10</ZIndex>
+                  <Visibility>
+                    <Hidden>=iif(Globals!PageNumber=Globals!TotalPages,False,True)</Hidden>
+                  </Visibility>
+                  <Style>
+                    <Border>
+                      <Style>Solid</Style>
+                    </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>10pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+              </ReportItems>
+              <KeepTogether>true</KeepTogether>
+              <Top>1.9cm</Top>
+              <Left>0.9cm</Left>
+              <Height>2.3cm</Height>
+              <Width>18.2cm</Width>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+            </Rectangle>
+            <Rectangle Name="Rectangle6">
+              <ReportItems>
+                <Textbox Name="txtAmountDue">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>ACCOUNT BALANCE</Value>
                           <Style>
                             <FontFamily>Calibri</FontFamily>
                             <FontSize>12pt</FontSize>
@@ -592,11 +1103,10 @@ PO Box 1042, Hawthorn, Victoria 3122, Australia    Tel: (03) 9804 1700  Fax: (03
                       </Style>
                     </Paragraph>
                   </Paragraphs>
-                  <Top>0.7cm</Top>
-                  <Left>7cm</Left>
+                  <Top>0.1cm</Top>
+                  <Left>8cm</Left>
                   <Height>1.5cm</Height>
-                  <Width>6.5cm</Width>
-                  <ZIndex>1</ZIndex>
+                  <Width>5cm</Width>
                   <Visibility>
                     <Hidden>=iif(Globals!PageNumber=Globals!TotalPages,False,True)</Hidden>
                   </Visibility>
@@ -612,12 +1122,13 @@ PO Box 1042, Hawthorn, Victoria 3122, Australia    Tel: (03) 9804 1700  Fax: (03
                   </Style>
                 </Textbox>
                 <Textbox Name="txtUSD">
+                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>=IIf(First(Fields!RAH_CU_ID.Value, "ds_RemittanceAdviceHeader") = "USD", "US", "")</Value>
+                          <Value>=IIf(First(Fields!DSH_CU_ID.Value, "ds_DebtorStatementHeader") = "USD", "US", "")</Value>
                           <Style>
                             <FontFamily>Calibri</FontFamily>
                             <FontSize>12pt</FontSize>
@@ -630,11 +1141,11 @@ PO Box 1042, Hawthorn, Victoria 3122, Australia    Tel: (03) 9804 1700  Fax: (03
                       </Style>
                     </Paragraph>
                   </Paragraphs>
-                  <Top>0.7cm</Top>
-                  <Left>13.5cm</Left>
+                  <Top>0.1cm</Top>
+                  <Left>13.2cm</Left>
                   <Height>1.5cm</Height>
                   <Width>0.8cm</Width>
-                  <ZIndex>2</ZIndex>
+                  <ZIndex>1</ZIndex>
                   <Visibility>
                     <Hidden>=iif(Globals!PageNumber=Globals!TotalPages,False,True)</Hidden>
                   </Visibility>
@@ -668,11 +1179,11 @@ PO Box 1042, Hawthorn, Victoria 3122, Australia    Tel: (03) 9804 1700  Fax: (03
                       </Style>
                     </Paragraph>
                   </Paragraphs>
-                  <Top>0.7cm</Top>
-                  <Left>14.5cm</Left>
+                  <Top>0.1cm</Top>
+                  <Left>14cm</Left>
                   <Height>1.5cm</Height>
                   <Width>0.5cm</Width>
-                  <ZIndex>3</ZIndex>
+                  <ZIndex>2</ZIndex>
                   <Visibility>
                     <Hidden>=iif(Globals!PageNumber=Globals!TotalPages,False,True)</Hidden>
                   </Visibility>
@@ -687,13 +1198,14 @@ PO Box 1042, Hawthorn, Victoria 3122, Australia    Tel: (03) 9804 1700  Fax: (03
                     <PaddingBottom>2pt</PaddingBottom>
                   </Style>
                 </Textbox>
-                <Textbox Name="RAH_TotalAmountPaid">
+                <Textbox Name="DSH_AccountBalance">
+                  <CanGrow>true</CanGrow>
                   <KeepTogether>true</KeepTogether>
                   <Paragraphs>
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>=First(Fields!RAH_TotalAmountPaid.Value, "ds_RemittanceAdviceHeader")</Value>
+                          <Value>=First(Fields!DSH_AccountBalance.Value, "ds_DebtorStatementHeader")</Value>
                           <Style>
                             <FontFamily>Calibri</FontFamily>
                             <FontSize>12pt</FontSize>
@@ -706,11 +1218,11 @@ PO Box 1042, Hawthorn, Victoria 3122, Australia    Tel: (03) 9804 1700  Fax: (03
                       </Style>
                     </Paragraph>
                   </Paragraphs>
-                  <Top>0.7cm</Top>
-                  <Left>15cm</Left>
+                  <Top>0.1cm</Top>
+                  <Left>14.5cm</Left>
                   <Height>1.5cm</Height>
-                  <Width>3cm</Width>
-                  <ZIndex>4</ZIndex>
+                  <Width>3.6cm</Width>
+                  <ZIndex>3</ZIndex>
                   <Visibility>
                     <Hidden>=iif(Globals!PageNumber=Globals!TotalPages,False,True)</Hidden>
                   </Visibility>
@@ -727,12 +1239,43 @@ PO Box 1042, Hawthorn, Victoria 3122, Australia    Tel: (03) 9804 1700  Fax: (03
                     <PaddingBottom>2pt</PaddingBottom>
                   </Style>
                 </Textbox>
+                <Textbox Name="txtContinued">
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>=iif(Globals!PageNumber=Globals!TotalPages, "", "Continued Next Page")</Value>
+                          <Style>
+                            <FontFamily>Calibri</FontFamily>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style />
+                    </Paragraph>
+                  </Paragraphs>
+                  <Top>0.6cm</Top>
+                  <Left>0.2cm</Left>
+                  <Height>0.6cm</Height>
+                  <Width>3.6cm</Width>
+                  <ZIndex>4</ZIndex>
+                  <Style>
+                    <Border>
+                      <Style>None</Style>
+                    </Border>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Top>0cm</Top>
+              <Top>0.1cm</Top>
               <Left>0.9cm</Left>
-              <Height>2.4cm</Height>
-              <Width>18cm</Width>
+              <Height>1.8cm</Height>
+              <Width>18.2cm</Width>
+              <ZIndex>1</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -758,13 +1301,13 @@ PO Box 1042, Hawthorn, Victoria 3122, Australia    Tel: (03) 9804 1700  Fax: (03
     </ReportSection>
   </ReportSections>
   <ReportParameters>
-    <ReportParameter Name="RAH_SuppNo">
+    <ReportParameter Name="DSH_AccountNo">
       <DataType>String</DataType>
-      <Prompt>Supplier No.</Prompt>
+      <Prompt>Account No</Prompt>
     </ReportParameter>
-    <ReportParameter Name="RAH_PrintDate">
+    <ReportParameter Name="DSH_StatementDate">
       <DataType>String</DataType>
-      <Prompt>Print Date</Prompt>
+      <Prompt>Statement Date</Prompt>
     </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
@@ -775,12 +1318,12 @@ PO Box 1042, Hawthorn, Victoria 3122, Australia    Tel: (03) 9804 1700  Fax: (03
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>0</RowIndex>
-          <ParameterName>RAH_SuppNo</ParameterName>
+          <ParameterName>DSH_AccountNo</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>1</ColumnIndex>
           <RowIndex>0</RowIndex>
-          <ParameterName>RAH_PrintDate</ParameterName>
+          <ParameterName>DSH_StatementDate</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>
@@ -840,6 +1383,8 @@ fA9DiZIBEdIpKQayKCIU9MYYMY1vYByJURPBzEV6vQUmrY//tMS6IMgrBtfRwRX9HdvJYFZe7BUJNqO5
 uuqrwmqsyuqs0itqrdrqreJqrurqrvJqr/rqrwJrsArrsBJrsRrrsSJrsirrsjJrszrroQYEADs=</ImageData>
     </EmbeddedImage>
   </EmbeddedImages>
+  <Language>en-US</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <rd:ReportID>d8ea1c51-3a51-4600-95b0-589b4fa0b3a6</rd:ReportID>
+  <rd:ReportID>f67e81ec-491c-477c-b66d-79f4ad9a4e12</rd:ReportID>
 </Report>

@@ -9,6 +9,14 @@
   </DataSources>
   <DataSets>
     <ProjectItem>
+      <Name>DebtorStatementHeader.rsd</Name>
+      <FullPath>DebtorStatementHeader.rsd</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DebtorStatementLines.rsd</Name>
+      <FullPath>DebtorStatementLines.rsd</FullPath>
+    </ProjectItem>
+    <ProjectItem>
       <Name>Invoice.rsd</Name>
       <FullPath>Invoice.rsd</FullPath>
     </ProjectItem>
@@ -97,6 +105,14 @@
     <ProjectItem>
       <Name>RemittanceAdviceLines.rdl</Name>
       <FullPath>RemittanceAdviceLines.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DebtorStatement.rdl</Name>
+      <FullPath>DebtorStatement.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DebtorStatementLines.rdl</Name>
+      <FullPath>DebtorStatementLines.rdl</FullPath>
     </ProjectItem>
   </Reports>
   <Configurations>

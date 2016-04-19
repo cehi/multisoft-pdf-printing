@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition">
+  <DataSet Name="">
+    <Query>
+      <DataSourceReference>SCCS-MDS_MultiSoft</DataSourceReference>
+      <DataSetParameters>
+        <DataSetParameter Name="@DSH_AccountNo">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>Object</rd:DbType>
+        </DataSetParameter>
+        <DataSetParameter Name="@DSH_StatementDate">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>false</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:DbType>Object</rd:DbType>
+        </DataSetParameter>
+      </DataSetParameters>
+      <CommandText>SELECT        DSH_ID, DSH_EntityValue, DSH_IF_ID, DSH_EntityID, DSH_CU_ID, DSH_AccountNo, DSH_StatementDate, DSH_CustomerNameAddress, DSH_AccountBalance, 
+                         DSH_3MonthsBalance, DSH_2MonthsBalance, DSH_1MonthBalance, DSH_CurrentBalance, DSH_UnallocatedCash
+FROM            vw_DebtorStatementHeader
+WHERE	DSH_AccountNo = @DSH_AccountNo 
+AND DSH_StatementDate = @DSH_StatementDate</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="DSH_ID">
+        <DataField>DSH_ID</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="DSH_EntityValue">
+        <DataField>DSH_EntityValue</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="DSH_IF_ID">
+        <DataField>DSH_IF_ID</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="DSH_EntityID">
+        <DataField>DSH_EntityID</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="DSH_CU_ID">
+        <DataField>DSH_CU_ID</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="DSH_AccountNo">
+        <DataField>DSH_AccountNo</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="DSH_StatementDate">
+        <DataField>DSH_StatementDate</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="DSH_CustomerNameAddress">
+        <DataField>DSH_CustomerNameAddress</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="DSH_AccountBalance">
+        <DataField>DSH_AccountBalance</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="DSH_3MonthsBalance">
+        <DataField>DSH_3MonthsBalance</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="DSH_2MonthsBalance">
+        <DataField>DSH_2MonthsBalance</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="DSH_1MonthBalance">
+        <DataField>DSH_1MonthBalance</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="DSH_CurrentBalance">
+        <DataField>DSH_CurrentBalance</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="DSH_UnallocatedCash">
+        <DataField>DSH_UnallocatedCash</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>
