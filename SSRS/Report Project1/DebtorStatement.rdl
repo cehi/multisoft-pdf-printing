@@ -572,7 +572,7 @@ PO Box 1042, Hawthorn, Victoria 3122, Australia    Tel: (03) 9804 1700  Fax: (03
                       <Style />
                     </Paragraph>
                   </Paragraphs>
-                  <Top>3.55cm</Top>
+                  <Top>3.35cm</Top>
                   <Left>0.1cm</Left>
                   <Height>0.6cm</Height>
                   <Width>6.6cm</Width>
@@ -594,7 +594,8 @@ PO Box 1042, Hawthorn, Victoria 3122, Australia    Tel: (03) 9804 1700  Fax: (03
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>Accounts:     (03) 9804 1726</Value>
+                          <Value>Accounts:  (03) 9804 1726
+Email:     accounts@sccs.com.au</Value>
                           <Style>
                             <FontFamily>Calibri</FontFamily>
                             <FontWeight>Normal</FontWeight>
@@ -604,9 +605,9 @@ PO Box 1042, Hawthorn, Victoria 3122, Australia    Tel: (03) 9804 1700  Fax: (03
                       <Style />
                     </Paragraph>
                   </Paragraphs>
-                  <Top>4cm</Top>
+                  <Top>3.8cm</Top>
                   <Left>0.1cm</Left>
-                  <Height>0.5cm</Height>
+                  <Height>1cm</Height>
                   <Width>6.6cm</Width>
                   <ZIndex>5</ZIndex>
                   <Style>
@@ -624,7 +625,7 @@ PO Box 1042, Hawthorn, Victoria 3122, Australia    Tel: (03) 9804 1700  Fax: (03
               <KeepTogether>true</KeepTogether>
               <Top>3cm</Top>
               <Left>12.3cm</Left>
-              <Height>4.7cm</Height>
+              <Height>4.8cm</Height>
               <Width>6.8cm</Width>
               <ZIndex>2</ZIndex>
               <Style>
@@ -669,7 +670,7 @@ PO Box 1042, Hawthorn, Victoria 3122, Australia    Tel: (03) 9804 1700  Fax: (03
                   <Top>0.3cm</Top>
                   <Left>0.1cm</Left>
                   <Height>0.6cm</Height>
-                  <Width>10.8cm</Width>
+                  <Width>14.4cm</Width>
                   <Visibility>
                     <Hidden>=iif(Globals!PageNumber=Globals!TotalPages,False,True)</Hidden>
                   </Visibility>
@@ -807,7 +808,7 @@ PO Box 1042, Hawthorn, Victoria 3122, Australia    Tel: (03) 9804 1700  Fax: (03
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>Current Balance</Value>
+                          <Value>Current</Value>
                           <Style>
                             <FontFamily>Calibri</FontFamily>
                             <FontSize>12pt</FontSize>
@@ -819,9 +820,9 @@ PO Box 1042, Hawthorn, Victoria 3122, Australia    Tel: (03) 9804 1700  Fax: (03
                       </Style>
                     </Paragraph>
                   </Paragraphs>
-                  <Top>0.3cm</Top>
+                  <Top>0.9cm</Top>
                   <Left>10.9cm</Left>
-                  <Height>1.2cm</Height>
+                  <Height>0.6cm</Height>
                   <Width>3.6cm</Width>
                   <ZIndex>4</ZIndex>
                   <Visibility>

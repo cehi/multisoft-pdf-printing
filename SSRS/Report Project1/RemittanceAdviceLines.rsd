@@ -13,7 +13,7 @@
       </DataSetParameters>
       <CommandText>SELECT        RAL_ID, RAL_RAH_ID, RAL_IF_ID, RAL_EntityID, RAL_Date, RAL_TransactionTypeRef, RAL_OurRef, RAL_IsInfo, RAL_TransactionValue, RAL_PaymentAmount
 FROM            vw_RemittanceAdviceLine
-WHERE	RAL_RAH_ID=@RAL_RAH_ID</CommandText>
+WHERE        (RAL_RAH_ID = @RAL_RAH_ID)</CommandText>
     </Query>
     <Fields>
       <Field Name="RAL_ID">

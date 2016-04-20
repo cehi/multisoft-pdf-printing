@@ -408,7 +408,7 @@ PO Box 1042, Hawthorn, Victoria 3122, Australia    Tel: (03) 9804 1700  Fax: (03
                       <Style />
                     </Paragraph>
                   </Paragraphs>
-                  <Top>2cm</Top>
+                  <Top>1.7cm</Top>
                   <Left>0.1cm</Left>
                   <Height>0.6cm</Height>
                   <Width>6.6cm</Width>
@@ -430,7 +430,8 @@ PO Box 1042, Hawthorn, Victoria 3122, Australia    Tel: (03) 9804 1700  Fax: (03
                     <Paragraph>
                       <TextRuns>
                         <TextRun>
-                          <Value>Accounts:     (03) 9804 1726</Value>
+                          <Value>Accounts:  (03) 9804 1726
+Email:     accounts@sccs.com.au</Value>
                           <Style>
                             <FontFamily>Calibri</FontFamily>
                             <FontWeight>Normal</FontWeight>
@@ -440,9 +441,9 @@ PO Box 1042, Hawthorn, Victoria 3122, Australia    Tel: (03) 9804 1700  Fax: (03
                       <Style />
                     </Paragraph>
                   </Paragraphs>
-                  <Top>2.65cm</Top>
+                  <Top>2.2cm</Top>
                   <Left>0.1cm</Left>
-                  <Height>0.5cm</Height>
+                  <Height>1cm</Height>
                   <Width>6.6cm</Width>
                   <ZIndex>2</ZIndex>
                   <Style>
@@ -582,7 +583,7 @@ PO Box 1042, Hawthorn, Victoria 3122, Australia    Tel: (03) 9804 1700  Fax: (03
                           <Value>TOTAL AMOUNT PAID</Value>
                           <Style>
                             <FontFamily>Calibri</FontFamily>
-                            <FontSize>12pt</FontSize>
+                            <FontSize>14pt</FontSize>
                             <FontWeight>Bold</FontWeight>
                           </Style>
                         </TextRun>
@@ -595,7 +596,7 @@ PO Box 1042, Hawthorn, Victoria 3122, Australia    Tel: (03) 9804 1700  Fax: (03
                   <Top>0.7cm</Top>
                   <Left>7cm</Left>
                   <Height>1.5cm</Height>
-                  <Width>6.5cm</Width>
+                  <Width>5.9cm</Width>
                   <ZIndex>1</ZIndex>
                   <Visibility>
                     <Hidden>=iif(Globals!PageNumber=Globals!TotalPages,False,True)</Hidden>
@@ -620,7 +621,7 @@ PO Box 1042, Hawthorn, Victoria 3122, Australia    Tel: (03) 9804 1700  Fax: (03
                           <Value>=IIf(First(Fields!RAH_CU_ID.Value, "ds_RemittanceAdviceHeader") = "USD", "US", "")</Value>
                           <Style>
                             <FontFamily>Calibri</FontFamily>
-                            <FontSize>12pt</FontSize>
+                            <FontSize>14pt</FontSize>
                             <FontWeight>Bold</FontWeight>
                           </Style>
                         </TextRun>
@@ -631,7 +632,7 @@ PO Box 1042, Hawthorn, Victoria 3122, Australia    Tel: (03) 9804 1700  Fax: (03
                     </Paragraph>
                   </Paragraphs>
                   <Top>0.7cm</Top>
-                  <Left>13.5cm</Left>
+                  <Left>12.9cm</Left>
                   <Height>1.5cm</Height>
                   <Width>0.8cm</Width>
                   <ZIndex>2</ZIndex>
@@ -658,7 +659,7 @@ PO Box 1042, Hawthorn, Victoria 3122, Australia    Tel: (03) 9804 1700  Fax: (03
                           <Value>$</Value>
                           <Style>
                             <FontFamily>Calibri</FontFamily>
-                            <FontSize>12pt</FontSize>
+                            <FontSize>14pt</FontSize>
                             <FontWeight>Bold</FontWeight>
                           </Style>
                         </TextRun>
@@ -669,7 +670,7 @@ PO Box 1042, Hawthorn, Victoria 3122, Australia    Tel: (03) 9804 1700  Fax: (03
                     </Paragraph>
                   </Paragraphs>
                   <Top>0.7cm</Top>
-                  <Left>14.5cm</Left>
+                  <Left>13.9cm</Left>
                   <Height>1.5cm</Height>
                   <Width>0.5cm</Width>
                   <ZIndex>3</ZIndex>
@@ -696,7 +697,7 @@ PO Box 1042, Hawthorn, Victoria 3122, Australia    Tel: (03) 9804 1700  Fax: (03
                           <Value>=First(Fields!RAH_TotalAmountPaid.Value, "ds_RemittanceAdviceHeader")</Value>
                           <Style>
                             <FontFamily>Calibri</FontFamily>
-                            <FontSize>12pt</FontSize>
+                            <FontSize>14pt</FontSize>
                             <FontWeight>Bold</FontWeight>
                           </Style>
                         </TextRun>
@@ -707,9 +708,9 @@ PO Box 1042, Hawthorn, Victoria 3122, Australia    Tel: (03) 9804 1700  Fax: (03
                     </Paragraph>
                   </Paragraphs>
                   <Top>0.7cm</Top>
-                  <Left>15cm</Left>
+                  <Left>14.4cm</Left>
                   <Height>1.5cm</Height>
-                  <Width>3cm</Width>
+                  <Width>3.6cm</Width>
                   <ZIndex>4</ZIndex>
                   <Visibility>
                     <Hidden>=iif(Globals!PageNumber=Globals!TotalPages,False,True)</Hidden>

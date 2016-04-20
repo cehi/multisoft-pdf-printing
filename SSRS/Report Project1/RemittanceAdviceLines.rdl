@@ -101,6 +101,7 @@
                                   <Value>Date</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
+                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -117,10 +118,10 @@
                             </Border>
                             <BackgroundColor>Gainsboro</BackgroundColor>
                             <VerticalAlign>Top</VerticalAlign>
-                            <PaddingLeft>10pt</PaddingLeft>
+                            <PaddingLeft>8pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -137,6 +138,7 @@
                                   <Value>Transaction Type &amp; Reference</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
+                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -153,10 +155,10 @@
                             </Border>
                             <BackgroundColor>Gainsboro</BackgroundColor>
                             <VerticalAlign>Top</VerticalAlign>
-                            <PaddingLeft>10pt</PaddingLeft>
+                            <PaddingLeft>8pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -173,6 +175,7 @@
                                   <Value>Our Reference</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
+                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -189,10 +192,10 @@
                             </Border>
                             <BackgroundColor>Gainsboro</BackgroundColor>
                             <VerticalAlign>Top</VerticalAlign>
-                            <PaddingLeft>10pt</PaddingLeft>
+                            <PaddingLeft>8pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -210,6 +213,7 @@
 $</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
+                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -228,10 +232,10 @@ $</Value>
                             </Border>
                             <BackgroundColor>Gainsboro</BackgroundColor>
                             <VerticalAlign>Top</VerticalAlign>
-                            <PaddingLeft>10pt</PaddingLeft>
+                            <PaddingLeft>8pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -249,6 +253,7 @@ $</Value>
 $</Value>
                                   <Style>
                                     <FontFamily>Calibri</FontFamily>
+                                    <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -267,10 +272,10 @@ $</Value>
                             </Border>
                             <BackgroundColor>Gainsboro</BackgroundColor>
                             <VerticalAlign>Top</VerticalAlign>
-                            <PaddingLeft>10pt</PaddingLeft>
+                            <PaddingLeft>3pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
+                            <PaddingTop>1pt</PaddingTop>
+                            <PaddingBottom>1pt</PaddingBottom>
                           </Style>
                         </Textbox>
                       </CellContents>
@@ -314,7 +319,7 @@ $</Value>
                               <Style>None</Style>
                             </BottomBorder>
                             <VerticalAlign>Top</VerticalAlign>
-                            <PaddingLeft>10pt</PaddingLeft>
+                            <PaddingLeft>8pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>0.5pt</PaddingTop>
                             <PaddingBottom>0.5pt</PaddingBottom>
@@ -351,7 +356,7 @@ $</Value>
                               <Style>Solid</Style>
                             </RightBorder>
                             <VerticalAlign>Top</VerticalAlign>
-                            <PaddingLeft>10pt</PaddingLeft>
+                            <PaddingLeft>8pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>0.5pt</PaddingTop>
                             <PaddingBottom>0.5pt</PaddingBottom>
@@ -388,7 +393,7 @@ $</Value>
                               <Style>Solid</Style>
                             </RightBorder>
                             <VerticalAlign>Top</VerticalAlign>
-                            <PaddingLeft>10pt</PaddingLeft>
+                            <PaddingLeft>8pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>0.5pt</PaddingTop>
                             <PaddingBottom>0.5pt</PaddingBottom>
@@ -427,7 +432,7 @@ $</Value>
                               <Style>Solid</Style>
                             </RightBorder>
                             <VerticalAlign>Top</VerticalAlign>
-                            <PaddingLeft>10pt</PaddingLeft>
+                            <PaddingLeft>8pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>0.5pt</PaddingTop>
                             <PaddingBottom>0.5pt</PaddingBottom>
@@ -474,7 +479,7 @@ $</Value>
                               <Style>None</Style>
                             </LeftBorder>
                             <VerticalAlign>Top</VerticalAlign>
-                            <PaddingLeft>10pt</PaddingLeft>
+                            <PaddingLeft>8pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>0.5pt</PaddingTop>
                             <PaddingBottom>0.5pt</PaddingBottom>
