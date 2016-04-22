@@ -1,0 +1,90 @@
+'This file is to reside in \\sccs-msd\c$\MSSQL11.MSSQLSERVER\MSSQL\Scripts
+'Imports Microsoft.VisualBasic.DateAndTime
+
+'Usage
+'"C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\rs.exe" -i "C:\MSSQL11.MSSQLSERVER\MSSQL\Scripts\GeneratePDF.rss" -s http://localhost/reportserver -e Exec2005 -v vPON="147012"
+
+'Declaring Global Variables that are yanked from the command line -v variables
+			'Private myRS As ReportingService2010
+			Dim RAH_SuppNo as String = vPON
+			Dim RAH_PrintDate as String = vPrintDate
+			Dim strFileName as String = vFileName
+'Starting the main script:
+
+Public Sub Main()
+
+	'Name the Report to be used
+		Dim reportPath as String = "/MultiSoft Reports/RemittanceAdvice"
+
+	'Set the Destination and type of the report
+		Dim format as string = "pdf"
+		Dim dt AS date
+		Dim datestamp AS String  
+		Dim fileName as String
+'					Console.WriteLine("No catalog items were retrieved. Nothing more to do here.")
+Console.WriteLine(vPON & " " & vPrintDate)
+
+	'Prepare Render arguments, probably dont have to change these.
+		Dim historyID as string = Nothing
+		Dim deviceInfo as string = Nothing
+		Dim extension as string = Nothing
+		Dim encoding as string
+		Dim mimeType as string = "application/pdf"
+		Dim warnings() AS Warning = Nothing
+		Dim streamIDs() as string = Nothing
+		Dim results() as Byte
+		
+		dt=dt.now()
+		Console.WriteLine(dt)
+		'datestamp = " " & dt.tostring("yyyyMMdd HHmmss")
+		'datestamp = " " & dt.year.tostring() & dt.month.tostring() & dt.day.tostring() & " " & dt.hour.tostring() & dt.minute.tostring() & dt.second.tostring()
+		'fileName = "C:\MultiSoftPDFs\" & vFileName & ".PDF"
+		fileName = strFileName
+		
+		Console.WriteLine(fileName)
+		
+		'myRS = rs
+		
+		'myRS.Credentials = System.Net.CredentialCache.DefaultCredentials
+		'myRS.LoadReport(reportPath, historyID)
+		rs.Credentials = System.Net.CredentialCache.DefaultCredentials
+		Console.WriteLine("Credentials Set")
+		rs.LoadReport(reportPath, historyID)
+		Console.WriteLine("ReportLoaded")
+
+	'Declare Report Parameters
+
+		Dim parameters(2) As ParameterValue
+
+		parameters(0) = New ParameterValue()
+		parameters(0).Name = "RAH_SuppNo"
+		parameters(0).Value = RAH_SuppNo
+
+		parameters(1) = New ParameterValue()
+		parameters(1).Name = "RAH_PrintDate"
+		parameters(1).Value = RAH_PrintDate
+
+		Console.WriteLine("Parameters Set")
+		
+		rs.SetExecutionParameters(parameters, "en-us")
+		Console.WriteLine("Parameters added to Report")
+		results = rs.Render(format, deviceInfo, extension, mimeType, encoding, warnings, streamIDs)
+		Console.WriteLine("Report Rendered")
+
+	'Open a file stream and write out the report
+		'myFileStream = File.OpenWrite(fileName)
+		'myFileStream.Write(results, 0, results.Length)
+		'myFileStream.Close()
+
+		Try
+	
+         Dim stream As FileStream = File.Create(fileName, results.Length)
+         Console.WriteLine("File created.")
+         stream.Write(results, 0, results.Length)
+         Console.WriteLine("Result written to the file.")
+         stream.Close()
+		Catch e As Exception
+         Console.WriteLine(e.Message)
+		End Try
+
+End Sub

@@ -51,6 +51,14 @@
   </DataSets>
   <Reports>
     <ProjectItem>
+      <Name>DebtorStatement.rdl</Name>
+      <FullPath>DebtorStatement.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>DebtorStatementLines.rdl</Name>
+      <FullPath>DebtorStatementLines.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
       <Name>Delivery Advice - Blank.rdl</Name>
       <FullPath>Delivery Advice - Blank.rdl</FullPath>
     </ProjectItem>
@@ -106,14 +114,6 @@
       <Name>RemittanceAdviceLines.rdl</Name>
       <FullPath>RemittanceAdviceLines.rdl</FullPath>
     </ProjectItem>
-    <ProjectItem>
-      <Name>DebtorStatement.rdl</Name>
-      <FullPath>DebtorStatement.rdl</FullPath>
-    </ProjectItem>
-    <ProjectItem>
-      <Name>DebtorStatementLines.rdl</Name>
-      <FullPath>DebtorStatementLines.rdl</FullPath>
-    </ProjectItem>
   </Reports>
   <Configurations>
     <Configuration>
@@ -122,7 +122,7 @@
       <Options>
         <OutputPath>bin\Debug</OutputPath>
         <TargetServerVersion>SSRS2008R2</TargetServerVersion>
-        <TargetServerURL>http://sccs-msd/reportserver</TargetServerURL>
+        <TargetServerURL>http://lanchi-dell:8080//reportserver</TargetServerURL>
         <TargetFolder>MultiSoft Reports</TargetFolder>
         <TargetDataSourceFolder>Data Sources</TargetDataSourceFolder>
         <OverwriteDataSources>true</OverwriteDataSources>

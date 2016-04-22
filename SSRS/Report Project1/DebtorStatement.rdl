@@ -93,7 +93,7 @@
               </Parameter>
             </Parameters>
             <Top>0cm</Top>
-            <Left>0.9cm</Left>
+            <Left>1cm</Left>
             <Height>1.45cm</Height>
             <Width>18.1cm</Width>
             <Style>
@@ -677,126 +677,11 @@ Email:     accounts@sccs.com.au</Value>
                   <Style>
                     <Border>
                       <Style>Solid</Style>
+                      <Width>0.5pt</Width>
                     </Border>
                     <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
                     <PaddingRight>2pt</PaddingRight>
-                    <PaddingTop>1pt</PaddingTop>
-                    <PaddingBottom>1pt</PaddingBottom>
-                  </Style>
-                </Textbox>
-                <Textbox Name="txt3Months">
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>3 Months</Value>
-                          <Style>
-                            <FontFamily>Calibri</FontFamily>
-                            <FontSize>12pt</FontSize>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style>
-                        <TextAlign>Right</TextAlign>
-                      </Style>
-                    </Paragraph>
-                  </Paragraphs>
-                  <Top>0.9cm</Top>
-                  <Left>0.1cm</Left>
-                  <Height>0.6cm</Height>
-                  <Width>3.6cm</Width>
-                  <ZIndex>1</ZIndex>
-                  <Visibility>
-                    <Hidden>=iif(Globals!PageNumber=Globals!TotalPages,False,True)</Hidden>
-                  </Visibility>
-                  <Style>
-                    <Border>
-                      <Style>Solid</Style>
-                    </Border>
-                    <BackgroundColor>Silver</BackgroundColor>
-                    <VerticalAlign>Middle</VerticalAlign>
-                    <PaddingLeft>2pt</PaddingLeft>
-                    <PaddingRight>10pt</PaddingRight>
-                    <PaddingTop>1pt</PaddingTop>
-                    <PaddingBottom>1pt</PaddingBottom>
-                  </Style>
-                </Textbox>
-                <Textbox Name="txt2Months">
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>2 Months</Value>
-                          <Style>
-                            <FontFamily>Calibri</FontFamily>
-                            <FontSize>12pt</FontSize>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style>
-                        <TextAlign>Right</TextAlign>
-                      </Style>
-                    </Paragraph>
-                  </Paragraphs>
-                  <Top>0.9cm</Top>
-                  <Left>3.7cm</Left>
-                  <Height>0.6cm</Height>
-                  <Width>3.6cm</Width>
-                  <ZIndex>2</ZIndex>
-                  <Visibility>
-                    <Hidden>=iif(Globals!PageNumber=Globals!TotalPages,False,True)</Hidden>
-                  </Visibility>
-                  <Style>
-                    <Border>
-                      <Style>Solid</Style>
-                    </Border>
-                    <BackgroundColor>LightGrey</BackgroundColor>
-                    <VerticalAlign>Middle</VerticalAlign>
-                    <PaddingLeft>2pt</PaddingLeft>
-                    <PaddingRight>10pt</PaddingRight>
-                    <PaddingTop>1pt</PaddingTop>
-                    <PaddingBottom>1pt</PaddingBottom>
-                  </Style>
-                </Textbox>
-                <Textbox Name="txt1Month">
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>1 Month</Value>
-                          <Style>
-                            <FontFamily>Calibri</FontFamily>
-                            <FontSize>12pt</FontSize>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style>
-                        <TextAlign>Right</TextAlign>
-                      </Style>
-                    </Paragraph>
-                  </Paragraphs>
-                  <Top>0.9cm</Top>
-                  <Left>7.3cm</Left>
-                  <Height>0.6cm</Height>
-                  <Width>3.6cm</Width>
-                  <ZIndex>3</ZIndex>
-                  <Visibility>
-                    <Hidden>=iif(Globals!PageNumber=Globals!TotalPages,False,True)</Hidden>
-                  </Visibility>
-                  <Style>
-                    <Border>
-                      <Style>Solid</Style>
-                    </Border>
-                    <VerticalAlign>Middle</VerticalAlign>
-                    <PaddingLeft>2pt</PaddingLeft>
-                    <PaddingRight>10pt</PaddingRight>
                     <PaddingTop>1pt</PaddingTop>
                     <PaddingBottom>1pt</PaddingBottom>
                   </Style>
@@ -824,52 +709,14 @@ Email:     accounts@sccs.com.au</Value>
                   <Left>10.9cm</Left>
                   <Height>0.6cm</Height>
                   <Width>3.6cm</Width>
-                  <ZIndex>4</ZIndex>
+                  <ZIndex>1</ZIndex>
                   <Visibility>
                     <Hidden>=iif(Globals!PageNumber=Globals!TotalPages,False,True)</Hidden>
                   </Visibility>
                   <Style>
                     <Border>
                       <Style>Solid</Style>
-                    </Border>
-                    <VerticalAlign>Middle</VerticalAlign>
-                    <PaddingLeft>2pt</PaddingLeft>
-                    <PaddingRight>10pt</PaddingRight>
-                    <PaddingTop>2pt</PaddingTop>
-                    <PaddingBottom>2pt</PaddingBottom>
-                  </Style>
-                </Textbox>
-                <Textbox Name="txtUnallocatedCash">
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>Unallocated
-Cash / Credits</Value>
-                          <Style>
-                            <FontFamily>Calibri</FontFamily>
-                            <FontSize>12pt</FontSize>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style>
-                        <TextAlign>Right</TextAlign>
-                      </Style>
-                    </Paragraph>
-                  </Paragraphs>
-                  <Top>0.3cm</Top>
-                  <Left>14.5cm</Left>
-                  <Height>1.2cm</Height>
-                  <Width>3.6cm</Width>
-                  <ZIndex>5</ZIndex>
-                  <Visibility>
-                    <Hidden>=iif(Globals!PageNumber=Globals!TotalPages,False,True)</Hidden>
-                  </Visibility>
-                  <Style>
-                    <Border>
-                      <Style>Solid</Style>
+                      <Width>0.5pt</Width>
                     </Border>
                     <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
@@ -901,13 +748,14 @@ Cash / Credits</Value>
                   <Left>0.1cm</Left>
                   <Height>0.8cm</Height>
                   <Width>3.6cm</Width>
-                  <ZIndex>6</ZIndex>
+                  <ZIndex>2</ZIndex>
                   <Visibility>
                     <Hidden>=iif(Globals!PageNumber=Globals!TotalPages,False,True)</Hidden>
                   </Visibility>
                   <Style>
                     <Border>
                       <Style>Solid</Style>
+                      <Width>0.5pt</Width>
                     </Border>
                     <BackgroundColor>Silver</BackgroundColor>
                     <VerticalAlign>Middle</VerticalAlign>
@@ -940,13 +788,14 @@ Cash / Credits</Value>
                   <Left>3.7cm</Left>
                   <Height>0.8cm</Height>
                   <Width>3.6cm</Width>
-                  <ZIndex>7</ZIndex>
+                  <ZIndex>3</ZIndex>
                   <Visibility>
                     <Hidden>=iif(Globals!PageNumber=Globals!TotalPages,False,True)</Hidden>
                   </Visibility>
                   <Style>
                     <Border>
                       <Style>Solid</Style>
+                      <Width>0.5pt</Width>
                     </Border>
                     <BackgroundColor>LightGrey</BackgroundColor>
                     <VerticalAlign>Middle</VerticalAlign>
@@ -979,13 +828,14 @@ Cash / Credits</Value>
                   <Left>7.3cm</Left>
                   <Height>0.8cm</Height>
                   <Width>3.6cm</Width>
-                  <ZIndex>8</ZIndex>
+                  <ZIndex>4</ZIndex>
                   <Visibility>
                     <Hidden>=iif(Globals!PageNumber=Globals!TotalPages,False,True)</Hidden>
                   </Visibility>
                   <Style>
                     <Border>
                       <Style>Solid</Style>
+                      <Width>0.5pt</Width>
                     </Border>
                     <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
@@ -1017,13 +867,14 @@ Cash / Credits</Value>
                   <Left>10.9cm</Left>
                   <Height>0.8cm</Height>
                   <Width>3.6cm</Width>
-                  <ZIndex>9</ZIndex>
+                  <ZIndex>5</ZIndex>
                   <Visibility>
                     <Hidden>=iif(Globals!PageNumber=Globals!TotalPages,False,True)</Hidden>
                   </Visibility>
                   <Style>
                     <Border>
                       <Style>Solid</Style>
+                      <Width>0.5pt</Width>
                     </Border>
                     <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
@@ -1055,6 +906,163 @@ Cash / Credits</Value>
                   <Left>14.5cm</Left>
                   <Height>0.8cm</Height>
                   <Width>3.6cm</Width>
+                  <ZIndex>6</ZIndex>
+                  <Visibility>
+                    <Hidden>=iif(Globals!PageNumber=Globals!TotalPages,False,True)</Hidden>
+                  </Visibility>
+                  <Style>
+                    <Border>
+                      <Style>Solid</Style>
+                      <Width>0.5pt</Width>
+                    </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>10pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="txt1Month">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>1 Month</Value>
+                          <Style>
+                            <FontFamily>Calibri</FontFamily>
+                            <FontSize>12pt</FontSize>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                      </Style>
+                    </Paragraph>
+                  </Paragraphs>
+                  <Top>0.9cm</Top>
+                  <Left>7.3cm</Left>
+                  <Height>0.6cm</Height>
+                  <Width>3.6cm</Width>
+                  <ZIndex>7</ZIndex>
+                  <Visibility>
+                    <Hidden>=iif(Globals!PageNumber=Globals!TotalPages,False,True)</Hidden>
+                  </Visibility>
+                  <Style>
+                    <Border>
+                      <Style>Solid</Style>
+                      <Width>0.5pt</Width>
+                    </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>10pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="txt2Months">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>2 Months</Value>
+                          <Style>
+                            <FontFamily>Calibri</FontFamily>
+                            <FontSize>12pt</FontSize>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                      </Style>
+                    </Paragraph>
+                  </Paragraphs>
+                  <Top>0.9cm</Top>
+                  <Left>3.7cm</Left>
+                  <Height>0.6cm</Height>
+                  <Width>3.6cm</Width>
+                  <ZIndex>8</ZIndex>
+                  <Visibility>
+                    <Hidden>=iif(Globals!PageNumber=Globals!TotalPages,False,True)</Hidden>
+                  </Visibility>
+                  <Style>
+                    <Border>
+                      <Style>Solid</Style>
+                      <Width>0.5pt</Width>
+                    </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>10pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="txt3Months">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>3 Months</Value>
+                          <Style>
+                            <FontFamily>Calibri</FontFamily>
+                            <FontSize>12pt</FontSize>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                      </Style>
+                    </Paragraph>
+                  </Paragraphs>
+                  <Top>0.9cm</Top>
+                  <Left>0.1cm</Left>
+                  <Height>0.6cm</Height>
+                  <Width>3.6cm</Width>
+                  <ZIndex>9</ZIndex>
+                  <Visibility>
+                    <Hidden>=iif(Globals!PageNumber=Globals!TotalPages,False,True)</Hidden>
+                  </Visibility>
+                  <Style>
+                    <Border>
+                      <Style>Solid</Style>
+                      <Width>0.5pt</Width>
+                    </Border>
+                    <VerticalAlign>Middle</VerticalAlign>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>10pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+                <Textbox Name="txtUnallocatedCash">
+                  <CanGrow>true</CanGrow>
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>Unallocated
+Cash / Credits</Value>
+                          <Style>
+                            <FontFamily>Calibri</FontFamily>
+                            <FontSize>12pt</FontSize>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style>
+                        <TextAlign>Right</TextAlign>
+                      </Style>
+                    </Paragraph>
+                  </Paragraphs>
+                  <Top>0.3cm</Top>
+                  <Left>14.5cm</Left>
+                  <Height>1.22cm</Height>
+                  <Width>3.6cm</Width>
                   <ZIndex>10</ZIndex>
                   <Visibility>
                     <Hidden>=iif(Globals!PageNumber=Globals!TotalPages,False,True)</Hidden>
@@ -1062,7 +1070,11 @@ Cash / Credits</Value>
                   <Style>
                     <Border>
                       <Style>Solid</Style>
+                      <Width>0.5pt</Width>
                     </Border>
+                    <BottomBorder>
+                      <Style>None</Style>
+                    </BottomBorder>
                     <VerticalAlign>Middle</VerticalAlign>
                     <PaddingLeft>2pt</PaddingLeft>
                     <PaddingRight>10pt</PaddingRight>
@@ -1074,8 +1086,8 @@ Cash / Credits</Value>
               <KeepTogether>true</KeepTogether>
               <Top>1.9cm</Top>
               <Left>0.9cm</Left>
-              <Height>2.3cm</Height>
-              <Width>18.2cm</Width>
+              <Height>2.4cm</Height>
+              <Width>18.2025cm</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
