@@ -350,11 +350,15 @@ $</Value>
                           <rd:DefaultName>RAL_TransactionTypeRef</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <RightBorder>
                               <Style>Solid</Style>
-                            </RightBorder>
+                              <Width>0.5pt</Width>
+                            </Border>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Style>None</Style>
+                            </BottomBorder>
                             <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>8pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -387,11 +391,15 @@ $</Value>
                           <rd:DefaultName>RAL_OurRef</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <RightBorder>
                               <Style>Solid</Style>
-                            </RightBorder>
+                              <Width>0.5pt</Width>
+                            </Border>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Style>None</Style>
+                            </BottomBorder>
                             <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>8pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -426,11 +434,15 @@ $</Value>
                           <rd:DefaultName>RAL_TransactionValue</rd:DefaultName>
                           <Style>
                             <Border>
-                              <Style>None</Style>
-                            </Border>
-                            <RightBorder>
                               <Style>Solid</Style>
-                            </RightBorder>
+                              <Width>0.5pt</Width>
+                            </Border>
+                            <TopBorder>
+                              <Style>None</Style>
+                            </TopBorder>
+                            <BottomBorder>
+                              <Style>None</Style>
+                            </BottomBorder>
                             <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>8pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -475,9 +487,6 @@ $</Value>
                             <BottomBorder>
                               <Style>None</Style>
                             </BottomBorder>
-                            <LeftBorder>
-                              <Style>None</Style>
-                            </LeftBorder>
                             <VerticalAlign>Top</VerticalAlign>
                             <PaddingLeft>8pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
@@ -485,6 +494,7 @@ $</Value>
                             <PaddingBottom>0.5pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
